@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+J:\Eclipse & JDK Setup Instructions\IDEfor2500\WorkSpaceFor2500\.metadata\.plugins\org.eclipse.jdt.core
+264119703.index
+2380175872.index
