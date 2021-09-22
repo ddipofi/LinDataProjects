@@ -10,11 +10,22 @@ public class CardStack
 	public static void main(String[] args)
 	{
 		Scanner userInput = new Scanner(System.in);
-//		int n = userInput.nextInt();
-//		int m = userInput.nextInt();
+		int n = userInput.nextInt();
+		int m = userInput.nextInt();
 		
-		String OSV = userInput.nextLine();
+		for (int i = 1; i <= n * m; i++)
+		{
+			String OSVString = userInput.nextLine();
+			ValidateOSV(OSVString);
+			int OSVInt = OSVtoInt(OSVString);
+			//add OSVInt to array or node or stack or whatever
+		}
 		
+		for (int i = 1; i <= n + m - 2; i++)
+		{
+			String flipString = userInput.nextLine();
+			//add flipString to array or something to keep track
+		}
 	}
 	
 	public static boolean ValidateOSV(String OSV)
@@ -28,11 +39,15 @@ public class CardStack
 		{
 			OValid = true;
 		}
-		if (OSV.charAt(0) == 'C' || OSV.charAt(0) == 'c' || OSV.charAt(0) == 'D' || OSV.charAt(0) == 'd' || OSV.charAt(0) == 'H' || OSV.charAt(0) == 'h' || OSV.charAt(0) == 'S' || OSV.charAt(0) == 's')
+		if (OSV.charAt(1) == 'C' || OSV.charAt(1) == 'c' || OSV.charAt(1) == 'D' || OSV.charAt(1) == 'd' || OSV.charAt(1) == 'H' || OSV.charAt(1) == 'h' || OSV.charAt(1) == 'S' || OSV.charAt(1) == 's')
 		{
 			SValid = true;
 		}
-		//TODO VValid if statement
+		if (OSV.charAt(2) == '2' || OSV.charAt(2) == '3' || OSV.charAt(2) == '4' || OSV.charAt(2) == '5' || OSV.charAt(2) == '6' || OSV.charAt(2) == '7' || OSV.charAt(2) == '8' || OSV.charAt(2) == '9' || OSV.charAt(2) == 'T' || OSV.charAt(2) == 't' || OSV.charAt(2) == 'J' || OSV.charAt(2) == 'j' || OSV.charAt(2) == 'Q' || OSV.charAt(2) == 'q' || OSV.charAt(2) == 'K' || OSV.charAt(2) == 'k' || OSV.charAt(2) == 'A' || OSV.charAt(2) == 'a')
+		{
+			VValid = true;
+		}
+		
 		if (OValid == true && SValid == true && VValid == true)
 		{
 			valid = true;

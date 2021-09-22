@@ -18,6 +18,4 @@ public class LLStack<T>
 			return value;
 		}
 	}
-		
-	}
 }
