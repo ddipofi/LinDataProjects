@@ -6,20 +6,20 @@ public class CardStack
 	public static void main(String[] args)
 	{
 		Scanner userInput = new Scanner(System.in);
+		
+		//should be in loop for as many tests as there are
 		int n = userInput.nextInt();
 		int m = userInput.nextInt();
+		userInput.nextLine();
 		@SuppressWarnings("unchecked")
-		LLStack<Integer>[][] cards;
+		LLStack<Integer>[][] cards = new LLStack[n][m];
 		
 		for (int i = 1; i <= n * m; i++)
 		{
 			String OSVString = userInput.nextLine();
 			OSV.ValidateOSV(OSVString);
 			int OSVInt = OSV.OSVToInt(OSVString);
-			
-			//add OSVInt to array or node or stack or whatever
-			cards[n][m] = new LLStack();
-			cards.push(OSVInt);
+			cards[n][m].push(OSVInt);
 		}
 		
 		for (int i = 1; i <= n + m - 2; i++)
