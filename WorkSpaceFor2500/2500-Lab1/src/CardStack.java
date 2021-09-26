@@ -42,7 +42,7 @@ public class CardStack
 					{
 						while (!cards[T][j].isEmpty())
 						{
-							var card = cards[T][j].top();
+							int card = cards[T][j].top();
 							card *= -1;
 							cards[T+1][j].push(card);
 							cards[T][j].pop();
@@ -55,7 +55,7 @@ public class CardStack
 					{
 						while (!cards[B][j].isEmpty())
 						{
-							var card = cards[B][j].top();
+							int card = cards[B][j].top();
 							card *= -1;
 							cards[B-1][j].push(card);
 							cards[B][j].pop();
@@ -68,7 +68,7 @@ public class CardStack
 					{
 						while (!cards[j][L].isEmpty())
 						{
-							var card = cards[j][L].top();
+							int card = cards[j][L].top();
 							card *= -1;
 							cards[j][L+1].push(card);
 							cards[j][L].pop();
@@ -81,7 +81,7 @@ public class CardStack
 					{
 						while (!cards[j][R].isEmpty())
 						{
-							var card = cards[j][R].top();
+							int card = cards[j][R].top();
 							card *= -1;
 							cards[j][R-1].push(card);
 							cards[j][R].pop();
@@ -94,7 +94,32 @@ public class CardStack
 			}
 		}
 		
+		@SuppressWarnings("unchecked")
+		LLStack<Integer>[][] results = new LLStack[1][1];
+		results[0][0] = new LLStack();
 		
+		//TODO make sure B and T are same as well as L and R
+		while (!cards[T][L].isEmpty())
+		{
+			int card = cards[T][L].top();
+			
+			if (card < 0)
+			{
+				results[0][0].push(card);
+			}
+			
+			cards[T][L].pop();
+		}
+		
+		//OUTPUT
+		System.out.print("Test " + "1" + ": ");
+		while (!results[0][0].isEmpty())
+		{
+			int card = results[0][0].top();
+			String SV = OSV.IntToSV(card);
+			System.out.print(SV + " ");
+			results[0][0].pop();
+		}
 		
 		userInput.close();
 	}
