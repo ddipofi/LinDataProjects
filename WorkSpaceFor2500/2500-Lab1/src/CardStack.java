@@ -1,13 +1,16 @@
 
 import java.util.Scanner;
 
+//TODO figure out scanner input issues
+//TODO clean up and comment code
+//TODO test more
 public class CardStack
 {
 	public static void main(String[] args)
 	{
 		Scanner userInput = new Scanner(System.in);
 		
-		//should be in loop for as many tests as there are
+		//TODO should be in loop for as many tests as there are
 		int n = userInput.nextInt();
 		int m = userInput.nextInt();
 		int T = 0;
@@ -98,7 +101,6 @@ public class CardStack
 		LLStack<Integer>[][] results = new LLStack[1][1];
 		results[0][0] = new LLStack();
 		
-		//TODO make sure B and T are same as well as L and R
 		while (!cards[T][L].isEmpty())
 		{
 			int card = cards[T][L].top();
