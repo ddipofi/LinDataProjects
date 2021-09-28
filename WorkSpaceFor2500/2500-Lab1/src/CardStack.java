@@ -1,9 +1,11 @@
 
+/*
+ * Dominic DiPofi
+ * 9-27-21
+ */
+
 import java.util.Scanner;
 
-//TODO figure out scanner input issues
-//TODO clean up and comment code
-//TODO test more
 public class CardStack
 {
 	public static void main(String[] args)
@@ -12,6 +14,7 @@ public class CardStack
 		int n = 1;
 		int m = 1;
 		int testNo = 1;
+		String flipString = "";
 		
 		while (n != 0 && m != 0)
 		{
@@ -21,7 +24,6 @@ public class CardStack
 			int B = n - 1;
 			int L = 0;
 			int R = m - 1;
-			userInput.nextLine();
 			@SuppressWarnings("unchecked")
 			LLStack<Integer>[][] cards = new LLStack[n][m];
 			
@@ -29,17 +31,26 @@ public class CardStack
 			{
 				for (int j = 0; j < m; j++)
 				{
-					String OSVString = userInput.nextLine();
-					OSV.ValidateOSV(OSVString);
+					String OSVString = userInput.next();
+					if (!OSV.ValidateOSV(OSVString))
+					{
+						n = 0;
+						m = 0;
+					}
 					int OSVInt = OSV.OSVToInt(OSVString);
 					cards[i][j] = new LLStack();
 					cards[i][j].push(OSVInt);
 				}
 			}
 			
+			if (n >= 2 || m >= 2)
+			{
+				flipString = userInput.next();
+			}
+			
 			for (int i = 0; i < n + m - 2; i++)
 			{
-				char flipChar = userInput.next().charAt(0);
+				char flipChar = flipString.charAt(i);
 				flipChar = Character.toUpperCase(flipChar);
 				
 				switch (flipChar)
@@ -105,28 +116,31 @@ public class CardStack
 			LLStack<Integer>[][] results = new LLStack[1][1];
 			results[0][0] = new LLStack();
 			
-			while (!cards[T][L].isEmpty())
+			if (n != 0 || m != 0)
 			{
-				int card = cards[T][L].top();
-				
-				if (card < 0)
+				while (!cards[T][L].isEmpty())
 				{
-					results[0][0].push(card);
+					int card = cards[T][L].top();
+					
+					if (card < 0)
+					{
+						results[0][0].push(card);
+					}
+					
+					cards[T][L].pop();
 				}
 				
-				cards[T][L].pop();
-			}
-			
-			System.out.print("Test " + testNo + ": ");
-			while (!results[0][0].isEmpty())
-			{
-				int card = results[0][0].top();
-				String SV = OSV.IntToSV(card);
-				System.out.print(SV + " ");
-				results[0][0].pop();
-			}
-			
-			testNo++;
+				System.out.print("Test " + testNo + ": ");
+				while (!results[0][0].isEmpty())
+				{
+					int card = results[0][0].top();
+					String SV = OSV.IntToSV(card);
+					System.out.print(SV + " ");
+					results[0][0].pop();
+				}
+				
+				testNo++;
+			}	
 		}
 		
 		userInput.close();
