@@ -9,8 +9,8 @@ public class Tester
 		long time; // What time did we start this test?
 		double elapsed; // What was the elapsed time for all repetitions of this test (in seconds)?
 
-		long reps = 10; // How many repetitions to run (to average out variation)
-		size = 10; // How large is the set we're permuting?
+		long reps = 10000; // How many repetitions to run (to average out variation)
+		size = 7; // How large is the set we're permuting?
 
 		long fact = 1;
 		for (int i = size; i > 1; fact *= i--)
@@ -61,22 +61,22 @@ public class Tester
 			}
 			case 8:
 			{
-				//generate08(A);
+				generate08(A);
 				break;
 			}
 			case 9:
 			{
-				//generate09(A);
+				generate09(A);
 				break;
 			}
 			case 10:
 			{
-				//generate10(A);
+				generate10(A);
 				break;
 			}
 			case 11:
 			{
-				//generate11(A);
+				generate11(A);
 				break;
 			}
 			}
@@ -88,7 +88,7 @@ public class Tester
 	public static void generate01(int[] A)
 	{
 		perms++;
-		System.out.println(A[0]);
+		//System.out.println(A[0]);
 	}
 
 	public static void generate02(int[] A)
@@ -98,7 +98,7 @@ public class Tester
 				if (i != j)
 				{
 					perms++;
-					System.out.println(A[i] + " " + A[j]);
+					//System.out.println(A[i] + " " + A[j]);
 				}
 	}
 
@@ -110,7 +110,7 @@ public class Tester
 					if (i != j && i != k && j != k)
 					{
 						perms++;
-						System.out.println(A[i] + " " + A[j] + " " + A[k]);
+						//System.out.println(A[i] + " " + A[j] + " " + A[k]);
 					}
 	}
 
@@ -123,7 +123,7 @@ public class Tester
 						if (i != j && i != k && i != l && j != k && j != l && k != l)
 						{
 							perms++;
-							System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l]);
+							//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l]);
 						}
 	}
 
@@ -137,7 +137,7 @@ public class Tester
 							if (i != j && i != k && i != l && i != m && j != k && j != l && j != m && k != l && k != m && l != m)
 							{
 								perms++;
-								System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m]);
+								//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m]);
 							}
 	}
 
@@ -147,12 +147,12 @@ public class Tester
 			for (int j = 0; j < 6; j++)
 				for (int k = 0; k < 6; k++)
 					for (int l = 0; l < 6; l++)
-						for (int m = 0; l < 6; l++)
-							for (int n = 0; l < 6; l++)
+						for (int m = 0; m < 6; m++)
+							for (int n = 0; n < 6; n++)
 								if (i != j && i != k && i != l && i != m && i != n && j != k && j != l && j != m && j != n && k != l && k != m && k != n && l != m && l != n && m != n)
 								{
 									perms++;
-									System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n]);
+									//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n]);
 								}
 	}
 	
@@ -162,13 +162,18 @@ public class Tester
 			for (int j = 0; j < 7; j++)
 				for (int k = 0; k < 7; k++)
 					for (int l = 0; l < 7; l++)
-						for (int m = 0; l < 7; l++)
-							for (int n = 0; l < 7; l++)
-								for (int o = 0; l < 7; l++)
-									if (i != j && i != k && i != l && i != m && i != n && i != o && j != k && j != l && j != m && j != n && j != o && k != l && k != m && k != n && k != o && l != m && l != n && l != o && m != n && m != o && n != o)
+						for (int m = 0; m < 7; m++)
+							for (int n = 0; n < 7; n++)
+								for (int o = 0; o < 7; o++)
+									if (i != j && i != k && i != l && i != m && i != n && i != o && 
+									j != k && j != l && j != m && j != n && j != o && 
+									k != l && k != m && k != n && k != o && 
+									l != m && l != n && l != o && 
+									m != n && m != o && 
+									n != o)
 									{
 										perms++;
-										System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n] + " " + A[o]);
+										//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n] + " " + A[o]);
 									}
 	}
 	
@@ -178,14 +183,14 @@ public class Tester
 			for (int j = 0; j < 8; j++)
 				for (int k = 0; k < 8; k++)
 					for (int l = 0; l < 8; l++)
-						for (int m = 0; l < 8; l++)
-							for (int n = 0; l < 8; l++)
-								for (int o = 0; l < 8; l++)
-									for (int p = 0; l < 8; l++)
+						for (int m = 0; m < 8; m++)
+							for (int n = 0; n < 8; n++)
+								for (int o = 0; o < 8; o++)
+									for (int p = 0; p < 8; p++)
 										if (i != j && i != k && i != l && i != m && i != n && i != o && i != p && j != k && j != l && j != m && j != n && j != o && j != p && k != l && k != m && k != n && k != o && k != p && l != m && l != n && l != o && l != p && m != n && m != o && m != p && n != o && n != p && o != p)
 										{
 											perms++;
-											System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n] + " " + A[o] + " " + A[p]);
+											//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n] + " " + A[o] + " " + A[p]);
 										}
 	}
 	
@@ -195,13 +200,13 @@ public class Tester
 			for (int j = 0; j < 11; j++)
 				for (int k = 0; k < 11; k++)
 					for (int l = 0; l < 11; l++)
-						for (int m = 0; l < 11; l++)
-							for (int n = 0; l < 11; l++)
-								for (int o = 0; l < 11; l++)
-									for (int p = 0; l < 11; l++)
-										for (int q = 0; l < 11; l++)
-											for (int r = 0; l < 11; l++)
-												for (int s = 0; l < 11; l++)
+						for (int m = 0; l < 11; m++)
+							for (int n = 0; l < 11; n++)
+								for (int o = 0; l < 11; o++)
+									for (int p = 0; l < 11; p++)
+										for (int q = 0; l < 11; q++)
+											for (int r = 0; l < 11; r++)
+												for (int s = 0; l < 11; s++)
 													if (i != j && i != k && i != l && i != m && i != n && i != o && i != p && i != q && i != r && i != s && j != k && j != l && j != m && j != n && j != o && j != p && j != q && j != r && j != s && k != l && k != m && k != n && k != o && k != p && k != q && k != r && k != s && l != m && l != n && l != o && l != p && l != q && l != r && l != s && m != n && m != o && m != p && m != q && m != r && m != s && n != o && n != p && n != q && n != r && n != s && o != p && o != q && o != r && o != s && p != r && p != s && r != s)
 													{
 														perms++;
@@ -215,13 +220,13 @@ public class Tester
 			for (int j = 0; j < 11; j++)
 				for (int k = 0; k < 11; k++)
 					for (int l = 0; l < 11; l++)
-						for (int m = 0; l < 11; l++)
-							for (int n = 0; l < 11; l++)
-								for (int o = 0; l < 11; l++)
-									for (int p = 0; l < 11; l++)
-										for (int q = 0; l < 11; l++)
-											for (int r = 0; l < 11; l++)
-												for (int s = 0; l < 11; l++)
+						for (int m = 0; l < 11; m++)
+							for (int n = 0; l < 11; n++)
+								for (int o = 0; l < 11; o++)
+									for (int p = 0; l < 11; p++)
+										for (int q = 0; l < 11; q++)
+											for (int r = 0; l < 11; r++)
+												for (int s = 0; l < 11; s++)
 													if (i != j && i != k && i != l && i != m && i != n && i != o && i != p && i != q && i != r && i != s && j != k && j != l && j != m && j != n && j != o && j != p && j != q && j != r && j != s && k != l && k != m && k != n && k != o && k != p && k != q && k != r && k != s && l != m && l != n && l != o && l != p && l != q && l != r && l != s && m != n && m != o && m != p && m != q && m != r && m != s && n != o && n != p && n != q && n != r && n != s && o != p && o != q && o != r && o != s && p != r && p != s && r != s)
 													{
 														perms++;
@@ -235,17 +240,17 @@ public class Tester
 			for (int j = 0; j < 11; j++)
 				for (int k = 0; k < 11; k++)
 					for (int l = 0; l < 11; l++)
-						for (int m = 0; l < 11; l++)
-							for (int n = 0; l < 11; l++)
-								for (int o = 0; l < 11; l++)
-									for (int p = 0; l < 11; l++)
-										for (int q = 0; l < 11; l++)
-											for (int r = 0; l < 11; l++)
-												for (int s = 0; l < 11; l++)
+						for (int m = 0; l < 11; m++)
+							for (int n = 0; l < 11; n++)
+								for (int o = 0; l < 11; o++)
+									for (int p = 0; l < 11; p++)
+										for (int q = 0; l < 11; q++)
+											for (int r = 0; l < 11; r++)
+												for (int s = 0; l < 11; s++)
 													if (i != j && i != k && i != l && i != m && i != n && i != o && i != p && i != q && i != r && i != s && j != k && j != l && j != m && j != n && j != o && j != p && j != q && j != r && j != s && k != l && k != m && k != n && k != o && k != p && k != q && k != r && k != s && l != m && l != n && l != o && l != p && l != q && l != r && l != s && m != n && m != o && m != p && m != q && m != r && m != s && n != o && n != p && n != q && n != r && n != s && o != p && o != q && o != r && o != s && p != r && p != s && r != s)
 													{
 														perms++;
-														System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n] + " " + A[o] + " " + A[p] + " " + A[q] + " " + A[r] + " " + A[s]);
+														//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n] + " " + A[o] + " " + A[p] + " " + A[q] + " " + A[r] + " " + A[s]);
 													}
 	}
 } // end class
