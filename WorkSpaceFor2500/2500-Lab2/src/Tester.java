@@ -107,7 +107,8 @@ public class Tester
 		for (int i = 0; i < 3; i++)
 			for (int j = 0; j < 3; j++)
 				for (int k = 0; k < 3; k++)
-					if (i != j && i != k && j != k)
+					if (i != j && i != k &&
+					j != k)
 					{
 						perms++;
 						//System.out.println(A[i] + " " + A[j] + " " + A[k]);
@@ -120,7 +121,9 @@ public class Tester
 			for (int j = 0; j < 4; j++)
 				for (int k = 0; k < 4; k++)
 					for (int l = 0; l < 4; l++)
-						if (i != j && i != k && i != l && j != k && j != l && k != l)
+						if (i != j && i != k && i != l && 
+						j != k && j != l && 
+						k != l)
 						{
 							perms++;
 							//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l]);
@@ -134,7 +137,10 @@ public class Tester
 				for (int k = 0; k < 5; k++)
 					for (int l = 0; l < 5; l++)
 						for (int m = 0; m < 5; m++)
-							if (i != j && i != k && i != l && i != m && j != k && j != l && j != m && k != l && k != m && l != m)
+							if (i != j && i != k && i != l && i != m && 
+							j != k && j != l && j != m && 
+							k != l && k != m && 
+							l != m)
 							{
 								perms++;
 								//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m]);
@@ -149,7 +155,11 @@ public class Tester
 					for (int l = 0; l < 6; l++)
 						for (int m = 0; m < 6; m++)
 							for (int n = 0; n < 6; n++)
-								if (i != j && i != k && i != l && i != m && i != n && j != k && j != l && j != m && j != n && k != l && k != m && k != n && l != m && l != n && m != n)
+								if (i != j && i != k && i != l && i != m && i != n && 
+								j != k && j != l && j != m && j != n && 
+								k != l && k != m && k != n && 
+								l != m && l != n && 
+								m != n)
 								{
 									perms++;
 									//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n]);
@@ -187,7 +197,13 @@ public class Tester
 							for (int n = 0; n < 8; n++)
 								for (int o = 0; o < 8; o++)
 									for (int p = 0; p < 8; p++)
-										if (i != j && i != k && i != l && i != m && i != n && i != o && i != p && j != k && j != l && j != m && j != n && j != o && j != p && k != l && k != m && k != n && k != o && k != p && l != m && l != n && l != o && l != p && m != n && m != o && m != p && n != o && n != p && o != p)
+										if (i != j && i != k && i != l && i != m && i != n && i != o && i != p && 
+										j != k && j != l && j != m && j != n && j != o && j != p && 
+										k != l && k != m && k != n && k != o && k != p && 
+										l != m && l != n && l != o && l != p && 
+										m != n && m != o && m != p && 
+										n != o && n != p && 
+										o != p)
 										{
 											perms++;
 											//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n] + " " + A[o] + " " + A[p]);
@@ -205,13 +221,18 @@ public class Tester
 								for (int o = 0; o < 9; o++)
 									for (int p = 0; p < 9; p++)
 										for (int q = 0; q < 9; q++)
-											for (int r = 0; r < 9; r++)
-												for (int s = 0; s < 9; s++)
-													if (i != j && i != k && i != l && i != m && i != n && i != o && i != p && i != q && i != r && i != s && j != k && j != l && j != m && j != n && j != o && j != p && j != q && j != r && j != s && k != l && k != m && k != n && k != o && k != p && k != q && k != r && k != s && l != m && l != n && l != o && l != p && l != q && l != r && l != s && m != n && m != o && m != p && m != q && m != r && m != s && n != o && n != p && n != q && n != r && n != s && o != p && o != q && o != r && o != s && p != r && p != s && r != s)
-													{
-														perms++;
-														System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n] + " " + A[o] + " " + A[p] + " " + A[q] + " " + A[r] + " " + A[s]);
-													}
+											if (i != j && i != k && i != l && i != m && i != n && i != o && i != p && i != q && 
+											j != k && j != l && j != m && j != n && j != o && j != p && j != q && 
+											k != l && k != m && k != n && k != o && k != p && k != q &&
+											l != m && l != n && l != o && l != p && l != q &&
+											m != n && m != o && m != p && m != q && 
+											n != o && n != p && n != q && 
+											o != p && o != q &&
+											p != q)
+											{
+												perms++;
+												//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n] + " " + A[o] + " " + A[p] + " " + A[q]);
+											}
 	}
 	
 	public static void generate10(int[] A)
@@ -226,12 +247,19 @@ public class Tester
 									for (int p = 0; p < 10; p++)
 										for (int q = 0; q < 10; q++)
 											for (int r = 0; r < 10; r++)
-												for (int s = 0; s < 10; s++)
-													if (i != j && i != k && i != l && i != m && i != n && i != o && i != p && i != q && i != r && i != s && j != k && j != l && j != m && j != n && j != o && j != p && j != q && j != r && j != s && k != l && k != m && k != n && k != o && k != p && k != q && k != r && k != s && l != m && l != n && l != o && l != p && l != q && l != r && l != s && m != n && m != o && m != p && m != q && m != r && m != s && n != o && n != p && n != q && n != r && n != s && o != p && o != q && o != r && o != s && p != r && p != s && r != s)
-													{
-														perms++;
-														System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n] + " " + A[o] + " " + A[p] + " " + A[q] + " " + A[r] + " " + A[s]);
-													}
+												if (i != j && i != k && i != l && i != m && i != n && i != o && i != p && i != q && i != r &&
+												j != k && j != l && j != m && j != n && j != o && j != p && j != q && j != r && 
+												k != l && k != m && k != n && k != o && k != p && k != q && k != r && 
+												l != m && l != n && l != o && l != p && l != q && l != r && 
+												m != n && m != o && m != p && m != q && m != r && 
+												n != o && n != p && n != q && n != r && 
+												o != p && o != q && o != r && 
+												p != q && p != r &&
+												q != r)
+												{
+													perms++;
+													//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n] + " " + A[o] + " " + A[p] + " " + A[q] + " " + A[r]);
+												}
 	}
 	
 	public static void generate11(int[] A)
@@ -247,7 +275,15 @@ public class Tester
 										for (int q = 0; q < 11; q++)
 											for (int r = 0; r < 11; r++)
 												for (int s = 0; s < 11; s++)
-													if (i != j && i != k && i != l && i != m && i != n && i != o && i != p && i != q && i != r && i != s && j != k && j != l && j != m && j != n && j != o && j != p && j != q && j != r && j != s && k != l && k != m && k != n && k != o && k != p && k != q && k != r && k != s && l != m && l != n && l != o && l != p && l != q && l != r && l != s && m != n && m != o && m != p && m != q && m != r && m != s && n != o && n != p && n != q && n != r && n != s && o != p && o != q && o != r && o != s && p != r && p != s && r != s)
+													if (i != j && i != k && i != l && i != m && i != n && i != o && i != p && i != q && i != r && i != s && 
+													j != k && j != l && j != m && j != n && j != o && j != p && j != q && j != r && j != s && 
+													k != l && k != m && k != n && k != o && k != p && k != q && k != r && k != s && 
+													l != m && l != n && l != o && l != p && l != q && l != r && l != s && 
+													m != n && m != o && m != p && m != q && m != r && m != s && 
+													n != o && n != p && n != q && n != r && n != s && 
+													o != p && o != q && o != r && o != s && 
+													p != r && p != s && 
+													r != s)
 													{
 														perms++;
 														//System.out.println(A[i] + " " + A[j] + " " + A[k] + " " + A[l] + " " + A[m] + " " + A[n] + " " + A[o] + " " + A[p] + " " + A[q] + " " + A[r] + " " + A[s]);
