@@ -9,8 +9,8 @@ public class Tester
 		long time; // What time did we start this test?
 		double elapsed; // What was the elapsed time for all repetitions of this test (in seconds)?
 
-		long reps = 10000; // How many repetitions to run (to average out variation)
-		size = 5; // How large is the set we're permuting?
+		long reps = 100000000; // How many repetitions to run (to average out variation)
+		size = 1; // How large is the set we're permuting?
 
 		long fact = 1;
 		for (int i = size; i > 1; fact *= i--)
@@ -31,52 +31,52 @@ public class Tester
 			}
 			case 2:
 			{
-				generate02a(A);
+				//generate02a(A);
 				break;
 			}
 			case 3:
 			{
-				generate03a(A);
+				//generate03a(A);
 				break;
 			}
 			case 4:
 			{
-				generate04a(A);
+//				generate04a(A);
 				break;
 			}
 			case 5:
 			{
-				generate05a(A);
+//				generate05a(A);
 				break;
 			}
 			case 6:
 			{
-				generate06(A);
+//				generate06(A);
 				break;
 			}
 			case 7:
 			{
-				generate07(A);
+//				generate07(A);
 				break;
 			}
 			case 8:
 			{
-				generate08(A);
+//				generate08(A);
 				break;
 			}
 			case 9:
 			{
-				generate09(A);
+//				generate09(A);
 				break;
 			}
 			case 10:
 			{
-				generate10(A);
+//				generate10(A);
 				break;
 			}
 			case 11:
 			{
-				generate11(A);
+//				generate11(A);
 				break;
 			}
 			case 12:
@@ -94,6 +94,25 @@ public class Tester
 		elapsed = ((System.nanoTime() - time) / 1000000000.0 / reps);
 		System.out.printf(format, "Naive for", perms / reps, elapsed, (long) (perms / elapsed / reps));
 	} // end main
+	
+	public static void generateRec(int n, int[] A)
+	{
+		if (n == 1)
+		{
+			perms++;
+		}
+		else
+		{
+			generateRec(n-1, A);
+			for (int i = 0; i < n-1; i++)
+			{
+				if (n%2 == 0)
+				{
+					
+				}
+			}
+		}
+	}
 	
 	public static void generate01a(int[] A)
 	{
