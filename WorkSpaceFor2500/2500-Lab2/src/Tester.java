@@ -26,67 +26,62 @@ public class Tester
 			{
 			case 1:
 			{
-				generate01a(A);
+				generate01(A);
 				break;
 			}
 			case 2:
 			{
-				//generate02a(A);
+				generate02(A);
 				break;
 			}
 			case 3:
 			{
-				//generate03a(A);
+				generate03(A);
 				break;
 			}
 			case 4:
 			{
-//				generate04a(A);
+				generate04(A);
 				break;
 			}
 			case 5:
 			{
-//				generate05a(A);
+				generate05(A);
 				break;
 			}
 			case 6:
 			{
-//				generate06(A);
+				generate06(A);
 				break;
 			}
 			case 7:
 			{
-//				generate07(A);
+				generate07(A);
 				break;
 			}
 			case 8:
 			{
-//				generate08(A);
+				generate08(A);
 				break;
 			}
 			case 9:
 			{
-//				generate09(A);
+				generate09(A);
 				break;
 			}
 			case 10:
 			{
-//				generate10(A);
+				generate10(A);
 				break;
 			}
 			case 11:
 			{
-//				generate11(A);
+				generate11(A);
 				break;
 			}
 			case 12:
 			{
-				//generate12(A);
-				break;
-			}
-			case 13:
-			{
-				//generate13(A);
+				//generate12a(A);
 				break;
 			}
 			}
@@ -95,31 +90,12 @@ public class Tester
 		System.out.printf(format, "Naive for", perms / reps, elapsed, (long) (perms / elapsed / reps));
 	} // end main
 	
-	public static void generateRec(int n, int[] A)
-	{
-		if (n == 1)
-		{
-			perms++;
-		}
-		else
-		{
-			generateRec(n-1, A);
-			for (int i = 0; i < n-1; i++)
-			{
-				if (n%2 == 0)
-				{
-					
-				}
-			}
-		}
-	}
-	
-	public static void generate01a(int[] A)
+	public static void generate01(int[] A)
 	{
 		perms++;
 	}
 
-	public static void generate02a(int[] A)
+	public static void generate02(int[] A)
 	{
 		for (int i = 0; i < 2; i++)
 			for (int j = 0; j < 2; j++)
@@ -128,49 +104,49 @@ public class Tester
 					perms++;
 				}
 	}
-
-	public static void generate03a(int[] A)
+	
+	public static void generate03(int[] A)
 	{
 		for (int i = 0; i < 3; i++)
 			for (int j = 0; j < 3; j++)
-				if (i != j)
-					for (int k = 0; k < 3; k++)
-						if (i != k && j != k)
-						{
-							perms++;
-						}
+				for (int k = 0; k < 3; k++)
+					if (i != j && i != k && 
+					j != k)
+					{
+						perms++;
+					}
 	}
-
-	public static void generate04a(int[] A)
+	
+	public static void generate04(int[] A)
 	{
 		for (int i = 0; i < 4; i++)
 			for (int j = 0; j < 4; j++)
-				if (i != j)
-					for (int k = 0; k < 4; k++)
-						if (i != k && j != k)
-							for (int l = 0; l < 4; l++)
-								if (i != l && j != l && k != l)
+				for (int k = 0; k < 4; k++)
+					for (int l = 0; l < 4; l++)
+								if (i != j && i != k && i != l && 
+								j != k && j != l && 
+								k != l)
 								{
 									perms++;
 								}
 	}
-
-	public static void generate05a(int[] A)
+	
+	public static void generate05(int[] A)
 	{
 		for (int i = 0; i < 5; i++)
 			for (int j = 0; j < 5; j++)
-				if (i != j)
-					for (int k = 0; k < 5; k++)
-						if(i != k && j != k)
-							for (int l = 0; l < 5; l++)
-								if(i != l && j != l && k != l)
-									for (int m = 0; m < 5; m++)
-										if (i != m && j != m && k != m && l != m)
-										{
-											perms++;
-										}
+				for (int k = 0; k < 5; k++)
+					for (int l = 0; l < 5; l++)
+						for (int m = 0; m < 5; m++)
+								if (i != j && i != k && i != l && i != m && 
+								j != k && j != l && j != m &&
+								k != l && k != m &&
+								l != m)
+								{
+									perms++;
+								}
 	}
-
+	
 	public static void generate06(int[] A)
 	{
 		for (int i = 0; i < 6; i++)
