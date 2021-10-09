@@ -10,8 +10,8 @@ public class Tester2
 		long time; // What time did we start this test?
 		double elapsed; // What was the elapsed time for all repetitions of this test (in seconds)?
 
-		long reps = 10; // How many repetitions to run (to average out variation)
-		size = 10; // How large is the set we're permuting?
+		long reps = 10L; // How many repetitions to run (to average out variation)
+		size = 13; // How large is the set we're permuting?
 
 		long fact = 1;
 		for (int i = size; i > 1; fact *= i--)
@@ -20,7 +20,7 @@ public class Tester2
 
 		perms = 0; // We've not generated any permutations yet
 		time = System.nanoTime(); // mark the start time
-		for (int times = 1; times <= reps; times++) // repeat test, to average out variations in run time
+		for (long times = 1; times <= reps; times++) // repeat test, to average out variations in run time
 		{
 			int[] A = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
 			generateNonRec(size, A); // <----- Change to generateNonRec for Part IV ******
