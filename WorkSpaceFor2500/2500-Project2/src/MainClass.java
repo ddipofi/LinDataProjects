@@ -15,6 +15,7 @@ public class MainClass
 		//
 		String[] ListNames = { "Unsorted", "Sorted", "Self-Adj (Front)", "Self-Adj (By One)" };
 		final String FILE_NAME = "";
+		
 		//go through 2 passes
 			//1. open file, read, close file
 			//2. open, get parse time, close

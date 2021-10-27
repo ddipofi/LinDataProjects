@@ -20,7 +20,7 @@ public class List1 extends BaseList
 			LLNode newNode = new LLNode(word, 1);
 			newNode.setNext(list);
 			list = newNode;
-			//TODO element count
+			refChanges++;
 		}
 	}
 	
@@ -30,6 +30,8 @@ public class List1 extends BaseList
 		
 		while (list != null)
 		{	
+			keyCompare++;
+			
 			if (currentNode.getWord().equals(word))
 			{
 				return true;
