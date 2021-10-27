@@ -1,7 +1,6 @@
 
-public class ListTests
+public class MainClass
 {
-
 	public static void main(String[] args)
 	{
 		ListInterface[] Lists = new ListInterface[4]; // By creating the lists as
@@ -15,6 +14,11 @@ public class ListTests
 		// word one position towards front of list)
 		//
 		String[] ListNames = { "Unsorted", "Sorted", "Self-Adj (Front)", "Self-Adj (By One)" };
+		final String FILE_NAME = "";
+		//go through 2 passes
+			//1. open file, read, close file
+			//2. open, get parse time, close
+			
+		//build the four lists here, with parse time and performance metrics at end of building each list
 	}
-
 }

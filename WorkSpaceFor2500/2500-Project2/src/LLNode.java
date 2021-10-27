@@ -31,12 +31,12 @@ public class LLNode
 		return count;
 	}
 
-	public void setLink(LLNode link)
+	public void setNext(LLNode link)
 	{
 		this.link = link;
 	}
 
-	public LLNode getLink()
+	public LLNode getNext()
 	{
 		return link;
 	}
