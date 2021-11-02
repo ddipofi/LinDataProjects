@@ -1,6 +1,8 @@
 
 public class List2 extends BaseList
 {
+	public LLNode currentNode = null;
+	
 	public List2()
 	{
 		super();
@@ -11,18 +13,35 @@ public class List2 extends BaseList
 	{
 		if (find(word))
 		{
-			
+			currentNode.count++;
 		}
 		else
 		{
-			
+			LLNode newNode = new LLNode(word, 1);
+			newNode.setNext(list);
+			list = newNode;
+			refChanges++;
 		}
 	}
 	
 	public boolean find(String word)
-	{
-		boolean result = false;
+	{	
+		currentNode = list;
 		
-		return result;
+		while (list != null)
+		{	
+			keyCompare++;
+			
+			if (currentNode.getWord().equals(word))
+			{
+				return true;
+			}
+			else
+			{
+				currentNode = currentNode.getNext();
+			}
+		}
+		
+		return false;
 	}
 }
