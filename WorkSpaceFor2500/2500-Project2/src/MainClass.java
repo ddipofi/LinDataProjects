@@ -19,76 +19,70 @@ public class MainClass
 		//TODO add command line input
 		final String FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\Hamlet.txt";
 		
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 1; i++)
 		{
 			Scanner input = new Scanner(new File(FILE_NAME));
 			
-			switch (i)
+			while (input.hasNext())
 			{
-				case 0:
-					while (input.hasNext())
-					{
-						String word = input.next();
-						word = trimWord(word);
-					}
-					break;
-				case 1:
-					while (input.hasNextLine())
-					{
-						//if  statement that checks if input.next is word, then do the following
-						String word = input.next();
-						//method to remove front and back punc.
-						//add word and stuff
-						System.out.println(word);
-					}
-					break;
-				case 2:
-					while (input.hasNextLine())
-					{
-						String word = input.next();
-						word = trimWord(word);
-						
-						if (word != "")
-						{
-							System.out.println(word);
-						}
-					}
-					break;
-				case 3:
-					while (input.hasNextLine())
-					{
-						//if  statement that checks if input.next is word, then do the following
-						String word = input.next();
-						//method to remove front and back punc.
-						//add word and stuff
-						System.out.println(word);
-					}
-					break;
-				case 4:
-					while (input.hasNextLine())
-					{
-						//if  statement that checks if input.next is word, then do the following
-						String word = input.next();
-						//method to remove front and back punc.
-						//add word and stuff
-						System.out.println(word);
-					}
-					break;
-				case 5:
-					while (input.hasNextLine())
-					{
-						//if  statement that checks if input.next is word, then do the following
-						String word = input.next();
-						//method to remove front and back punc.
-						//add word and stuff
-						System.out.println(word);
-					}
-					break;
-				default:
-					break;
+				String word = input.next();
+				word = trimWord(word);
 			}
 			
 			input.close();
+		}
+		
+		for (int i = 0; i < 1; i++)
+		{
+			Scanner input = new Scanner(new File(FILE_NAME));
+			long startTime = System.currentTimeMillis();
+			
+			while (input.hasNext())
+			{
+				String word = input.next();
+				word = trimWord(word);
+			}
+			
+			long parseTime = System.currentTimeMillis() - startTime;
+			input.close();
+			
+			//TODO figure out why i need this System.out.print(parseTime);
+		}
+			
+		for (int i = 0; i < 4; i++)
+		{
+			Scanner input = new Scanner(new File(FILE_NAME));
+			long startTime = System.currentTimeMillis();
+			
+			while (input.hasNext())
+			{
+				String word = input.next();
+				word = trimWord(word);
+				
+				if (word != "" && word != null)
+				{
+					Lists[i].add(word);
+				}
+				
+				
+				if (word == "")
+				{
+					int j = 9;
+				}
+				if (word == null)
+				{
+					int k = 8;
+				}
+				
+				
+			}
+			
+			long parseTime = System.currentTimeMillis() - startTime;
+			input.close();
+			
+			//TODO print out various data needed
+			
+			
 		}
 	}
 	
