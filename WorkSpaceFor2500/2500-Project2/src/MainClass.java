@@ -16,70 +16,113 @@ public class MainClass
 		// word one position towards front of list)
 		//
 		String[] ListNames = { "Unsorted", "Sorted", "Self-Adj (Front)", "Self-Adj (By One)" };
-		final String FILE_NAME = "\"C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\Hamlet.txt\"";
-		
-		//go through 2 passes
-			//1. open file, read, close file
-			//2. open, get parse time, close
+		//TODO add command line input
+		final String FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\Hamlet.txt";
 		
 		for (int i = 0; i < 6; i++)
 		{
-			//BufferedReader reader = new BufferedReader(openFile(FILE_NAME));
 			Scanner input = new Scanner(new File(FILE_NAME));
-			//StringBuilder builder = new StringBuilder();
-			//String line = reader.readLine();
 			
 			switch (i)
 			{
 				case 0:
+					while (input.hasNext())
+					{
+						String word = input.next();
+						word = trimWord(word);
+					}
+					break;
+				case 1:
 					while (input.hasNextLine())
 					{
-						Scanner line = new Scanner(input.nextLine());
+						//if  statement that checks if input.next is word, then do the following
+						String word = input.next();
+						//method to remove front and back punc.
+						//add word and stuff
+						System.out.println(word);
+					}
+					break;
+				case 2:
+					while (input.hasNextLine())
+					{
+						String word = input.next();
+						word = trimWord(word);
 						
-						while (input.hasNext());
+						if (word != "")
 						{
-							String word = line.next();
-							//TODO remove this test
 							System.out.println(word);
 						}
 					}
 					break;
-				case 1:
-					break;
-				case 2:
-					break;
 				case 3:
+					while (input.hasNextLine())
+					{
+						//if  statement that checks if input.next is word, then do the following
+						String word = input.next();
+						//method to remove front and back punc.
+						//add word and stuff
+						System.out.println(word);
+					}
 					break;
 				case 4:
+					while (input.hasNextLine())
+					{
+						//if  statement that checks if input.next is word, then do the following
+						String word = input.next();
+						//method to remove front and back punc.
+						//add word and stuff
+						System.out.println(word);
+					}
 					break;
 				case 5:
+					while (input.hasNextLine())
+					{
+						//if  statement that checks if input.next is word, then do the following
+						String word = input.next();
+						//method to remove front and back punc.
+						//add word and stuff
+						System.out.println(word);
+					}
 					break;
 				default:
 					break;
 			}
 			
-			//closeFile(reader);
 			input.close();
 		}
+	}
+	
+	public static String trimWord(String word)
+	{
+		StringBuilder sb = new StringBuilder(word);
+		int lastCharIndex = 0;
 		
-		//build the four lists here, with parse time and performance metrics at end of building each list
-	}
-	
-	public static Reader openFile(String fileName) throws IOException
-	{
-		return new FileReader(new File(fileName));
-	}
-	
-	public String readWord(String line)
-	{
-		return "";
-	}
-	
-	public static void closeFile(Reader reader) throws IOException
-	{
-		if (reader != null)
+		for (int i = 0; i < sb.length(); i++)
 		{
-			reader.close();
+			if (Character.isLetter(sb.charAt(i)))
+			{
+				lastCharIndex = i;
+				break;
+			}
+			else
+			{
+				sb.deleteCharAt(i);
+				i--;
+			}
 		}
+		
+		for (int i = sb.length() - 1; i > lastCharIndex; i--)
+		{
+			if (Character.isLetter(sb.charAt(i)))
+			{
+				break;
+			}
+			else
+			{
+				sb.deleteCharAt(i);
+			}
+		}
+		
+		return sb.toString();
 	}
 }
