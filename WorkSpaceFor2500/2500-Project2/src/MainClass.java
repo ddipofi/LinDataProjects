@@ -19,6 +19,9 @@ public class MainClass
 		//TODO add command line input
 		final String FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\Hamlet.txt";
 		
+		System.out.printf("%2s %-17s %16s %16s %16s %16s %16s %n", "#", "    List Name    ", "    Run Time    ", "   Vocabulary   ", "  Total Words   ", "    Key Comp    ", "    Ref Chgs    ");
+		System.out.printf("%2s %-17s %16s %16s %16s %16s %16s %n", "--", "-----------------", "----------------", "----------------", "----------------", "----------------", "----------------");
+		
 		for (int i = 0; i < 1; i++)
 		{
 			Scanner input = new Scanner(new File(FILE_NAME));
@@ -46,7 +49,8 @@ public class MainClass
 			long parseTime = System.currentTimeMillis() - startTime;
 			input.close();
 			
-			//TODO figure out why i need this System.out.print(parseTime);
+			//overhead time
+			//TODO figure out why i need this -> System.out.print(parseTime);
 		}
 			
 		for (int i = 0; i < 4; i++)
@@ -59,30 +63,16 @@ public class MainClass
 				String word = input.next();
 				word = trimWord(word);
 				
-				if (word != "" && word != null)
+				if (word != "")
 				{
 					Lists[i].add(word);
-				}
-				
-				
-				if (word == "")
-				{
-					int j = 9;
-				}
-				if (word == null)
-				{
-					int k = 8;
-				}
-				
-				
+				}			
 			}
 			
-			long parseTime = System.currentTimeMillis() - startTime;
+			double parseTime = (System.currentTimeMillis() - startTime) / 1000.0;
 			input.close();
 			
-			//TODO print out various data needed
-			
-			
+			System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d %n", i + 1, ListNames[i], parseTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
 		}
 	}
 	
@@ -117,6 +107,7 @@ public class MainClass
 			}
 		}
 		
-		return sb.toString();
+		String trimmedWord = sb.toString();
+		return trimmedWord.toLowerCase();
 	}
 }
