@@ -49,7 +49,7 @@ public class MainClass
 			long parseTime = System.currentTimeMillis() - startTime;
 			input.close();
 			
-			//overhead time
+			//overhead time??
 			//TODO figure out why i need this -> System.out.print(parseTime);
 		}
 		

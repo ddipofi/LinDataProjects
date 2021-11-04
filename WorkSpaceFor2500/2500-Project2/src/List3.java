@@ -3,7 +3,6 @@ public class List3 extends BaseList
 {
 	public LLNode currentNode = null;
 	public LLNode prevNode = null;
-	public int listChanges = 0;
 	
 	public List3()
 	{
@@ -16,22 +15,20 @@ public class List3 extends BaseList
 		if (find(word))
 		{
 			currentNode.count++;
+			
+			if (currentNode != list)
+			{
+				prevNode.setNext(currentNode.getNext());
+				currentNode.setNext(list);
+				list = currentNode;
+				refChanges += 3;
+			}
 		}
 		else
 		{
 			LLNode newNode = new LLNode(word, 1);
-			newNode.setNext(currentNode);
-			
-			if (prevNode != null)
-			{
-				prevNode.setNext(newNode);
-			}
-			
-			if (listChanges == 0)
-			{
-				list = newNode;
-			}
-			
+			newNode.setNext(list);
+			list = newNode;
 			refChanges += 2;
 		}
 	}
@@ -40,26 +37,19 @@ public class List3 extends BaseList
 	{	
 		currentNode = list;
 		prevNode = null;
-		listChanges = 0;
 		
 		while (currentNode != null)
 		{	
-			int compareValue = currentNode.getWord().compareTo(word);
 			keyCompare++;
 			
-			if (compareValue == 0)
+			if (currentNode.getWord().equals(word))
 			{
 				return true;
 			}
-			else if (compareValue < 0)
+			else
 			{
 				prevNode = currentNode;
 				currentNode = currentNode.getNext();
-				listChanges++;
-			}
-			else
-			{
-				return false;
 			}
 		}
 		

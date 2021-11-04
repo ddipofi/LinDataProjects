@@ -3,7 +3,6 @@ public class List2 extends BaseList
 {
 	public LLNode currentNode = null;
 	public LLNode prevNode = null;
-	public int listChanges = 0;
 	
 	public List2()
 	{
@@ -26,8 +25,7 @@ public class List2 extends BaseList
 			{
 				prevNode.setNext(newNode);
 			}
-			
-			if (listChanges == 0)
+			else
 			{
 				list = newNode;
 			}
@@ -40,7 +38,6 @@ public class List2 extends BaseList
 	{	
 		currentNode = list;
 		prevNode = null;
-		listChanges = 0;
 		
 		while (currentNode != null)
 		{	
@@ -55,7 +52,6 @@ public class List2 extends BaseList
 			{
 				prevNode = currentNode;
 				currentNode = currentNode.getNext();
-				listChanges++;
 			}
 			else
 			{
