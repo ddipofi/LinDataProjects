@@ -2,6 +2,8 @@
 public class List2 extends BaseList
 {
 	public LLNode currentNode = null;
+	public LLNode prevNode = null;
+	public int listChanges = 0;
 	
 	public List2()
 	{
@@ -18,27 +20,46 @@ public class List2 extends BaseList
 		else
 		{
 			LLNode newNode = new LLNode(word, 1);
-			newNode.setNext(list);
-			list = newNode;
-			refChanges++;
+			newNode.setNext(currentNode);
+			
+			if (prevNode != null)
+			{
+				prevNode.setNext(newNode);
+			}
+			
+			if (listChanges == 0)
+			{
+				list = newNode;
+			}
+			
+			refChanges += 2;
 		}
 	}
 	
 	public boolean find(String word)
 	{	
 		currentNode = list;
+		prevNode = null;
+		listChanges = 0;
 		
-		while (list != null)
+		while (currentNode != null)
 		{	
+			int compareValue = currentNode.getWord().compareTo(word);
 			keyCompare++;
 			
-			if (currentNode.getWord().equals(word))
+			if (compareValue == 0)
 			{
 				return true;
 			}
+			else if (compareValue < 0)
+			{
+				prevNode = currentNode;
+				currentNode = currentNode.getNext();
+				listChanges++;
+			}
 			else
 			{
-				currentNode = currentNode.getNext();
+				return false;
 			}
 		}
 		

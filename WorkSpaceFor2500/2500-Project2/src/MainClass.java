@@ -17,7 +17,7 @@ public class MainClass
 		//
 		String[] ListNames = { "Unsorted", "Sorted", "Self-Adj (Front)", "Self-Adj (By One)" };
 		//TODO add command line input
-		final String FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\Hamlet.txt";
+		final String FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\War and Peace.txt";
 		
 		System.out.printf("%2s %-17s %16s %16s %16s %16s %16s %n", "#", "    List Name    ", "    Run Time    ", "   Vocabulary   ", "  Total Words   ", "    Key Comp    ", "    Ref Chgs    ");
 		System.out.printf("%2s %-17s %16s %16s %16s %16s %16s %n", "--", "-----------------", "----------------", "----------------", "----------------", "----------------", "----------------");
@@ -52,7 +52,8 @@ public class MainClass
 			//overhead time
 			//TODO figure out why i need this -> System.out.print(parseTime);
 		}
-			
+		
+		//TODO change i back to zero
 		for (int i = 0; i < 4; i++)
 		{
 			Scanner input = new Scanner(new File(FILE_NAME));
@@ -66,7 +67,7 @@ public class MainClass
 				if (word != "")
 				{
 					Lists[i].add(word);
-				}			
+				}
 			}
 			
 			double parseTime = (System.currentTimeMillis() - startTime) / 1000.0;
