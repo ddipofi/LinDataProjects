@@ -26,6 +26,10 @@ public class List4 extends BaseList
 				{
 					pprevNode.setNext(currentNode);
 				}
+				else
+				{
+					list = currentNode;
+				}
 				
 				refChanges += 3;
 			}
