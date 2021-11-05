@@ -15,13 +15,25 @@ public class MainClass
 		Lists[3] = new List4(); // Unsorted, conservative self-adjusting (moves repeated
 		// word one position towards front of list)
 		//
-		String[] ListNames = { "Unsorted", "Sorted", "Self-Adj (Front)", "Self-Adj (By One)" };
-		//TODO add command line input
-		final String FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\War and Peace.txt";
+		String[] ListNames = { "Unsorted", "Sorted", "Self-Adj (Front)", "Self-Adj (By One)" }; //names of lists stored in array for later output
+		String FILE_NAME; //filename to be read by program
 		
+		if (args.length > 0) //this detects if command line has input a specific filename, or else it uses default string value
+		{
+			FILE_NAME = args[0];
+		}
+		else
+		{
+			FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\Hamlet.txt";
+		}
+		
+		double parseTime = 0.0; //declaring time to read file
+		
+		//created table header
 		System.out.printf("%2s %-17s %16s %16s %16s %16s %16s %n", "#", "    List Name    ", "    Run Time    ", "   Vocabulary   ", "  Total Words   ", "    Key Comp    ", "    Ref Chgs    ");
 		System.out.printf("%2s %-17s %16s %16s %16s %16s %16s %n", "--", "-----------------", "----------------", "----------------", "----------------", "----------------", "----------------");
 		
+		//initial read of program to fill buffers
 		for (int i = 0; i < 1; i++)
 		{
 			Scanner input = new Scanner(new File(FILE_NAME));
@@ -35,6 +47,7 @@ public class MainClass
 			input.close();
 		}
 		
+		//second pass through program, recording run time without adding words to list
 		for (int i = 0; i < 1; i++)
 		{
 			Scanner input = new Scanner(new File(FILE_NAME));
@@ -46,48 +59,47 @@ public class MainClass
 				word = trimWord(word);
 			}
 			
-			long parseTime = System.currentTimeMillis() - startTime;
+			parseTime = (System.currentTimeMillis() - startTime) / 1000.0;
 			input.close();
-			
-			//overhead time??
-			//TODO figure out why i need this -> System.out.print(parseTime);
 		}
 		
-		//TODO change i back to zero
+		//looping through all four lists and readings/adding words to lists
 		for (int i = 0; i < 4; i++)
 		{
 			Scanner input = new Scanner(new File(FILE_NAME));
 			long startTime = System.currentTimeMillis();
 			
+			//scans every word and trims punctuation with trimWord method
 			while (input.hasNext())
 			{
 				String word = input.next();
 				word = trimWord(word);
 				
-				if (word != "")
+				if (word != "") //if word, after trimming, is not an empty string, add it to the current list
 				{
 					Lists[i].add(word);
 				}
 			}
 			
-			double parseTime = (System.currentTimeMillis() - startTime) / 1000.0;
+			double runTime = ((System.currentTimeMillis() - startTime) / 1000.0) - parseTime; //time it took to read and add to list, subtracting the overhead/parse time
 			input.close();
 			
-			System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d %n", i + 1, ListNames[i], parseTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			//formatting for table
+			System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d %n", i + 1, ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
 		}
 	}
 	
 	public static String trimWord(String word)
 	{
+		//using stringbuilder to easily delete characters
 		StringBuilder sb = new StringBuilder(word);
-		int lastCharIndex = 0;
 		
+		//checking the front of the string for punctuation, removing any
 		for (int i = 0; i < sb.length(); i++)
 		{
 			if (Character.isLetter(sb.charAt(i)))
 			{
-				lastCharIndex = i;
-				break;
+				break; //if it detects a letter, that means there is no more front punctuation and it moves to next loop
 			}
 			else
 			{
@@ -96,7 +108,8 @@ public class MainClass
 			}
 		}
 		
-		for (int i = sb.length() - 1; i > lastCharIndex; i--)
+		//checking for rear punctuation, deleting any
+		for (int i = sb.length() - 1; i >= 0; i--)
 		{
 			if (Character.isLetter(sb.charAt(i)))
 			{
@@ -108,7 +121,7 @@ public class MainClass
 			}
 		}
 		
-		String trimmedWord = sb.toString();
+		String trimmedWord = sb.toString(); //convert stringbuilder back to string to add to list
 		return trimmedWord.toLowerCase();
 	}
 }

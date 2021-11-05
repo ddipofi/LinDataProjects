@@ -4,30 +4,30 @@ public class List2 extends BaseList
 	public LLNode currentNode = null;
 	public LLNode prevNode = null;
 	
-	public List2()
+	public List2() //constructor for list
 	{
 		super();
 	}
 	
 	@Override
-	public void add(String word)
+	public void add(String word) //adds word to list
 	{
-		if (find(word))
+		if (find(word)) //checks if word currently exists in list and increments if so
 		{
 			currentNode.count++;
 		}
 		else
 		{
-			LLNode newNode = new LLNode(word, 1);
-			newNode.setNext(currentNode);
+			LLNode newNode = new LLNode(word, 1); //adds a new node
+			newNode.setNext(currentNode); //inserts new node alphabetically
 			
-			if (prevNode != null)
+			if (prevNode != null) //if there is a node before the current node, new node is placed in between prev and current node
 			{
 				prevNode.setNext(newNode);
 			}
 			else
 			{
-				list = newNode;
+				list = newNode; //if there is no previous node, the list now points at the new node at the front of the list
 			}
 			
 			refChanges += 2;
@@ -39,21 +39,21 @@ public class List2 extends BaseList
 		currentNode = list;
 		prevNode = null;
 		
-		while (currentNode != null)
+		while (currentNode != null) //while there is at least one node in the list
 		{	
-			int compareValue = currentNode.getWord().compareTo(word);
+			int compareValue = currentNode.word.compareTo(word); //used to sort list alphabetically
 			keyCompare++;
 			
-			if (compareValue == 0)
+			if (compareValue == 0) //if words are the same, return true
 			{
 				return true;
 			}
-			else if (compareValue < 0)
+			else if (compareValue < 0) //alphabetically searching for word
 			{
 				prevNode = currentNode;
 				currentNode = currentNode.getNext();
 			}
-			else
+			else //word must be added
 			{
 				return false;
 			}

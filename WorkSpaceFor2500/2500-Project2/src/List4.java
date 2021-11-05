@@ -3,9 +3,9 @@ public class List4 extends BaseList
 {
 	public LLNode currentNode = null;
 	public LLNode prevNode = null;
-	public LLNode pprevNode = null;
+	public LLNode pprevNode = null; //the node previous to the previous node, or twice previous
 	
-	public List4()
+	public List4() //constructor for list
 	{
 		super();
 	}
@@ -17,24 +17,24 @@ public class List4 extends BaseList
 		{
 			currentNode.count++;
 			
-			if (currentNode != list)
+			if (currentNode != list) //if the current node is not the first node in the list
 			{
 				prevNode.setNext(currentNode.getNext());
 				currentNode.setNext(prevNode);
 				
-				if (pprevNode != null)
+				if (pprevNode != null) //if there are at least 2 nodes before the current node
 				{
-					pprevNode.setNext(currentNode);
+					pprevNode.setNext(currentNode); //set link for the previous previous node
 				}
 				else
 				{
-					list = currentNode;
+					list = currentNode; //list points to current node
 				}
 				
 				refChanges += 3;
 			}
 		}
-		else
+		else //add new node to front
 		{
 			LLNode newNode = new LLNode(word, 1);
 			newNode.setNext(list);
@@ -53,11 +53,11 @@ public class List4 extends BaseList
 		{	
 			keyCompare++;
 			
-			if (currentNode.getWord().equals(word))
+			if (currentNode.word.equals(word))
 			{
 				return true;
 			}
-			else
+			else //continue searching list for word, setting the two previous nodes as well as current node
 			{
 				pprevNode = prevNode;
 				prevNode = currentNode;

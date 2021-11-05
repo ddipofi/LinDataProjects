@@ -4,7 +4,7 @@ public class List3 extends BaseList
 	public LLNode currentNode = null;
 	public LLNode prevNode = null;
 	
-	public List3()
+	public List3() //constructor for list
 	{
 		super();
 	}
@@ -12,11 +12,11 @@ public class List3 extends BaseList
 	@Override
 	public void add(String word)
 	{
-		if (find(word))
+		if (find(word)) //find word, if found, must move the node containing this word to the front of the list
 		{
 			currentNode.count++;
 			
-			if (currentNode != list)
+			if (currentNode != list) //if node isn't already at the front, move it to the front
 			{
 				prevNode.setNext(currentNode.getNext());
 				currentNode.setNext(list);
@@ -24,7 +24,7 @@ public class List3 extends BaseList
 				refChanges += 3;
 			}
 		}
-		else
+		else //else, new node is added to the beginning of the list
 		{
 			LLNode newNode = new LLNode(word, 1);
 			newNode.setNext(list);
@@ -38,18 +38,18 @@ public class List3 extends BaseList
 		currentNode = list;
 		prevNode = null;
 		
-		while (currentNode != null)
+		while (currentNode != null) //similar find method to list 1, but must have previous node so links stay intact
 		{	
 			keyCompare++;
 			
-			if (currentNode.getWord().equals(word))
+			if (currentNode.word.equals(word))
 			{
 				return true;
 			}
 			else
 			{
-				prevNode = currentNode;
-				currentNode = currentNode.getNext();
+				prevNode = currentNode; //previous node is set
+				currentNode = currentNode.getNext(); //current node changes to the next node in the list
 			}
 		}
 		
