@@ -62,7 +62,7 @@ public abstract class BaseList implements ListInterface
 		LLNode p = list;
 		while (p != null)
 		{
-			count += p.getCount();
+			count += p.count;
 			p = p.getNext();
 		}
 		return count;
