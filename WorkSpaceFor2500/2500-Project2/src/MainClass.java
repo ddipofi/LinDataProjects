@@ -5,7 +5,7 @@ public class MainClass
 {
 	public static void main(String[] args) throws IOException
 	{
-		ListInterface[] Lists = new ListInterface[4]; // By creating the lists as
+		ListInterface[] Lists = new ListInterface[6]; // By creating the lists as
 		// an array, we can iterate
 		// with a subscript
 		Lists[0] = new List1(); // Unsorted, insertions at beginning, no self-optimization
@@ -13,9 +13,11 @@ public class MainClass
 		Lists[2] = new List3(); // Unsorted, heavy-handed self-adjusting (moves repeated
 		// word to the front of the list)
 		Lists[3] = new List4(); // Unsorted, conservative self-adjusting (moves repeated
+		Lists[4] = new List2a(); //sorted linked list using reference node
+		//Lists[5] = new List5(); //skip list using lanes and insert method
 		// word one position towards front of list)
 		//
-		String[] ListNames = { "Unsorted", "Sorted", "Self-Adj (Front)", "Self-Adj (By One)" }; //names of lists stored in array for later output
+		String[] ListNames = { "Unsorted", "Sorted", "Self-Adj (Front)", "Self-Adj (By One)", "LIST2A REPLACE", "SKIP LIST REPLACE"}; //names of lists stored in array for later output
 		String FILE_NAME; //filename to be read by program
 		
 		if (args.length > 0) //this detects if command line has input a specific filename, or else it uses default string value
@@ -64,7 +66,7 @@ public class MainClass
 		}
 		
 		//looping through all four lists and readings/adding words to lists
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 5; i++)
 		{
 			Scanner input = new Scanner(new File(FILE_NAME));
 			long startTime = System.currentTimeMillis();
@@ -97,7 +99,7 @@ public class MainClass
 		//checking the front of the string for punctuation, removing any
 		for (int i = 0; i < sb.length(); i++)
 		{
-			if (Character.isLetter(sb.charAt(i)))
+			if (Character.isLetterOrDigit(sb.charAt(i)))
 			{
 				break; //if it detects a letter, that means there is no more front punctuation and it moves to next loop
 			}
@@ -111,7 +113,7 @@ public class MainClass
 		//checking for rear punctuation, deleting any
 		for (int i = sb.length() - 1; i >= 0; i--)
 		{
-			if (Character.isLetter(sb.charAt(i)))
+			if (Character.isLetterOrDigit(sb.charAt(i)))
 			{
 				break;
 			}
