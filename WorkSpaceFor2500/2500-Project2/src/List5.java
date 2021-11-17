@@ -1,8 +1,22 @@
+import java.util.*;
 
 public class List5 extends BaseList
 {
+	private SLNode head, tail;
+	private int h;
+	private int n;
+	private Random r;
 	
-	
+	public List5()
+	{
+		head = new SLNode(SLNode.negInf);
+		tail = new SLNode(SLNode.posInf);
+		head.right = tail;
+		tail.left = head;
+		r = new Random();
+		n = 0;
+		h = 1;
+	}
 	
 	
 	@Override
