@@ -2,21 +2,63 @@ import java.util.*;
 
 public class List5 extends BaseList
 {
-	private SLNode head, tail;
-	private int h;
-	private int n;
-	private Random r;
+	public SLNode head, tail;
+	public int h;
+	public int n;
+	public Random r;
 	
 	public List5()
 	{
-		head = new SLNode(SLNode.negInf);
-		tail = new SLNode(SLNode.posInf);
-		head.right = tail;
-		tail.left = head;
-		r = new Random();
+		SLNode p1 = new SLNode(SLNode.negInf, null);
+		SLNode p2 = new SLNode(SLNode.posInf, null);
+		p1.right = p2;
+		p2.left = p1;
+		head = p1;
+		tail = p2;
 		n = 0;
 		h = 1;
+		r = new Random();
+		//TODO is h 1 or 0 idk yet
 	}
+	
+	public SLNode search(String k)
+	{
+		SLNode p = head;
+		
+		while (true)
+		{
+			while (p.right.key != SLNode.posInf && (p.right.key).compareTo(k) <= 0)
+			{
+				p = p.right;
+			}
+			
+			if (p.down != null)
+			{
+				p = p.down;
+			}
+			else
+			{
+				break;
+			}
+		}
+		
+		return p;
+	}
+	
+	public int get(String k)
+	{
+		SLNode p = search(k);
+		
+		if (k.equals(p.key))
+		{
+			return p.value;
+		}
+		else
+		{
+			return null;
+		}
+	}
+	
 	
 	
 	@Override
