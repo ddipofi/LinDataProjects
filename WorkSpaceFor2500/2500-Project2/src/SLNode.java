@@ -2,32 +2,57 @@
 public class SLNode
 {
 	public String key;
-	public int value;
-	
-	//idk if i need these yet
-//	protected String word;
-//	protected int count;
-//	protected LLNode link;
+	public Integer value;
+
+	public int pos;
 
 	public SLNode up, down, left, right;
+
 	public static String negInf = "NEG_INF";
 	public static String posInf = "POS_INF";
-	
-	//same with below stuff
-//	public SLNode(String word, int count) //constructor for node, needs a word and count of how many times this word has appeared in a txt file, as well as a link
-//	{
-//		this.word = word;
-//		this.count = count;
-//		link = null;
-//	}
-//
-//	public void setNext(LLNode link) //sets the link
-//	{
-//		this.link = link;
-//	}
-//
-//	public LLNode getNext()//gets the current link
-//	{
-//		return link;
-//	}
+
+	public SLNode(String k, Integer v) 
+	  { 
+	     key = k;
+	     value = v;
+
+	     up = down = left = right = null;
+	  }
+
+	public Integer getValue()
+	{
+		return value;
+	}
+
+	public String getKey()
+	{
+		return key;
+	}
+
+	public Integer setValue(Integer val)
+	{
+		Integer oldValue = value;
+		value = val;
+		return oldValue;
+	}
+
+	public boolean equals(Object o)
+	{
+		SLNode ent;
+
+		try
+		{
+			ent = (SLNode) o;
+		} catch (ClassCastException ex)
+		{
+			return false;
+		}
+
+		return (ent.getKey() == key) && (ent.getValue() == value);
+	}
+
+	public String toString()
+	{
+		return "(" + key + "," + value + ")";
+	}
 }

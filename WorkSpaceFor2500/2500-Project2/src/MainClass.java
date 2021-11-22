@@ -10,14 +10,14 @@ public class MainClass
 		// with a subscript
 		Lists[0] = new List1(); // Unsorted, insertions at beginning, no self-optimization
 		Lists[1] = new List2(); // Sorted linked list
-		Lists[2] = new List3(); // Unsorted, heavy-handed self-adjusting (moves repeated
+		Lists[2] = new List2a(); //sorted linked list using reference node
+		Lists[3] = new List3(); // Unsorted, heavy-handed self-adjusting (moves repeated
 		// word to the front of the list)
-		Lists[3] = new List4(); // Unsorted, conservative self-adjusting (moves repeated
-		Lists[4] = new List2a(); //sorted linked list using reference node
-		//Lists[5] = new List5(); //skip list using lanes and insert method
+		Lists[4] = new List4(); // Unsorted, conservative self-adjusting (moves repeated
+		Lists[5] = new List5(); //skip list using lanes and insert method
 		// word one position towards front of list)
 		//
-		String[] ListNames = { "Unsorted", "Sorted", "Self-Adj (Front)", "Self-Adj (By One)", "LIST2A REPLACE", "SKIP LIST REPLACE"}; //names of lists stored in array for later output
+		String[] ListNames = { "Unsorted", "Sorted", "LIST2A REPLACE", "Self-Adj (Front)", "Self-Adj (By One)", "SKIP LIST REPLACE"}; //names of lists stored in array for later output
 		String FILE_NAME; //filename to be read by program
 		
 		if (args.length > 0) //this detects if command line has input a specific filename, or else it uses default string value
@@ -66,7 +66,7 @@ public class MainClass
 		}
 		
 		//looping through all four lists and readings/adding words to lists
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 6; i++)
 		{
 			Scanner input = new Scanner(new File(FILE_NAME));
 			long startTime = System.currentTimeMillis();
@@ -80,6 +80,8 @@ public class MainClass
 				if (word != "") //if word, after trimming, is not an empty string, add it to the current list
 				{
 					Lists[i].add(word);
+					
+					//TODO figure out what to do for skip list here
 				}
 			}
 			
