@@ -17,7 +17,7 @@ public class MainClass
 		Lists[5] = new List5(); //skip list using lanes and insert method
 		// word one position towards front of list)
 		//
-		String[] ListNames = { "Unsorted", "Sorted", "LIST2A REPLACE", "Self-Adj (Front)", "Self-Adj (By One)", "SKIP LIST REPLACE"}; //names of lists stored in array for later output
+		String[] ListNames = { "Unsorted", "Sorted", "Sorted 2.0", "Self-Adj (Front)", "Self-Adj (By One)", "Skip List"}; //names of lists stored in array for later output
 		String FILE_NAME; //filename to be read by program
 		
 		if (args.length > 0) //this detects if command line has input a specific filename, or else it uses default string value
@@ -66,7 +66,7 @@ public class MainClass
 		}
 		
 		//looping through all four lists and readings/adding words to lists
-		for (int i = 0; i < 6; i++)
+		for (int i = 5; i < 6; i++)
 		{
 			Scanner input = new Scanner(new File(FILE_NAME));
 			long startTime = System.currentTimeMillis();
@@ -80,9 +80,6 @@ public class MainClass
 				if (word != "") //if word, after trimming, is not an empty string, add it to the current list
 				{
 					Lists[i].add(word);
-					
-					
-					//TODO figure out what to do for skip list here
 				}
 			}
 			
@@ -90,7 +87,7 @@ public class MainClass
 			input.close();
 			
 			//formatting for table
-			System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d %n", i + 1, ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d %n", i + 1, ListNames[i], runTime, Lists[i].getDistinctWords(), 5, Lists[i].getKeyCompare(), Lists[i].getRefChanges());
 		}
 	}
 	

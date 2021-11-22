@@ -49,6 +49,7 @@ public class List5 extends BaseList
 		{
 			while (p.right.key != SLNode.posInf && p.right.key.compareTo(k) <= 0)
 			{
+				keyCompare += 2;
 				p = p.right;
 			}
 
@@ -77,11 +78,11 @@ public class List5 extends BaseList
 	@Override
 	public void add(String word)
 	{
-		put(word, 123);
+		insert(word, 123);
 		
 	}
 	
-	public Integer put(String k, Integer v)
+	public Integer insert(String k, Integer v)
 	{
 		SLNode p, q;
 		int i;
@@ -102,6 +103,7 @@ public class List5 extends BaseList
 		q.right = p.right;
 		p.right.left = q;
 		p.right = q;
+		refChanges += 4;
 
 		i = 0;
 
@@ -121,6 +123,8 @@ public class List5 extends BaseList
 
 				p2.left = p1;
 				p2.down = tail;
+				
+				refChanges += 4;
 
 				head.up = p1;
 				tail.up = p2;
@@ -132,9 +136,11 @@ public class List5 extends BaseList
 			while (p.up == null)
 			{
 				p = p.left;
+				refChanges++;
 			}
 
 			p = p.up;
+			refChanges++;
 
 			SLNode e;
 
@@ -149,6 +155,8 @@ public class List5 extends BaseList
 			q.up = e;
 
 			q = e;
+			
+			refChanges += 6;
 
 			i = i + 1;
 
@@ -165,13 +173,20 @@ public class List5 extends BaseList
 		// How many nodes are there on the list? Each corresponds to a unique word
 		//
 		int count = 0; // Alternate coding:
-		SLNode p = list; //
-		while (p != null) // for (LLNode p = list; p != null; p = p.getNext()) count++;
-		{ // return count;
-			count++; //
-			p = p.getNext(); //
-		} //
-		return count; //
+		SLNode p = head;
+		
+		while (p.down != null)
+		{
+			p = p.down;
+		}
+		
+		while (p.right.key != SLNode.posInf)
+		{
+			p = p.right;
+			count++;
+		}
+		
+		return count;
 	}
 
 	@Override
