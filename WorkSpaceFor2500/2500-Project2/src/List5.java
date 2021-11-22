@@ -11,23 +11,23 @@ public class List5 extends BaseList
 	public Random r;
 
 	public List5()
-	  { 
-	     SLNode p1, p2;
+	{
+		SLNode p1, p2;
 
-	     p1 = new SLNode(SLNode.negInf, null);
-	     p2 = new SLNode(SLNode.posInf, null);
+		p1 = new SLNode(SLNode.negInf, null);
+		p2 = new SLNode(SLNode.posInf, null);
 
-	     head = p1;
-	     tail = p2;
+		head = p1;
+		tail = p2;
 
-	     p1.right = p2;
-	     p2.left = p1;
+		p1.right = p2;
+		p2.left = p1;
 
-	     n = 0;
-	     h = 0;
+		n = 0;
+		h = 0;
 
-	     r = new Random();
-	  }
+		r = new Random();
+	}
 
 	public int size()
 	{
@@ -74,23 +74,13 @@ public class List5 extends BaseList
 			return (null);
 	}
 
-	public SLNode insertAfterAbove(SLNode p, SLNode q, String k)
+	@Override
+	public void add(String word)
 	{
-		SLNode e;
-
-		e = new SLNode(k, null);
-
-		e.left = p;
-		e.right = p.right;
-		e.down = q;
-
-		p.right.left = e;
-		p.right = e;
-		q.up = e;
-
-		return (e);
+		put(word, 123);
+		
 	}
-
+	
 	public Integer put(String k, Integer v)
 	{
 		SLNode p, q;
@@ -169,118 +159,6 @@ public class List5 extends BaseList
 		return (null);
 	}
 
-//	public Integer remove(String key)
-//	{
-//		return (null);
-//	}
-//
-//	public void printHorizontal()
-//	{
-//		String s = "";
-//		int i;
-//
-//		SLNode p;
-//
-//		p = head;
-//
-//		while (p.down != null)
-//		{
-//			p = p.down;
-//		}
-//
-//		i = 0;
-//		while (p != null)
-//		{
-//			p.pos = i++;
-//			p = p.right;
-//		}
-//
-//		p = head;
-//
-//		while (p != null)
-//		{
-//			s = getOneRow(p);
-//			System.out.println(s);
-//
-//			p = p.down;
-//		}
-//	}
-//
-//	public String getOneRow(SLNode p)
-//	{
-//		String s;
-//		int a, b, i;
-//
-//		a = 0;
-//
-//		s = "" + p.key;
-//		p = p.right;
-//
-//		while (p != null)
-//		{
-//			SLNode q;
-//
-//			q = p;
-//			while (q.down != null)
-//				q = q.down;
-//			b = q.pos;
-//
-//			s = s + " <-";
-//
-//			for (i = a + 1; i < b; i++)
-//				s = s + "--------";
-//
-//			s = s + "> " + p.key;
-//
-//			a = b;
-//
-//			p = p.right;
-//		}
-//
-//		return (s);
-//	}
-//
-//	public void printVertical()
-//	{
-//		String s = "";
-//
-//		SLNode p;
-//
-//		p = head;
-//
-//		while (p.down != null)
-//			p = p.down;
-//
-//		while (p != null)
-//		{
-//			s = getOneColumn(p);
-//			System.out.println(s);
-//
-//			p = p.right;
-//		}
-//	}
-//
-//	public String getOneColumn(SLNode p)
-//	{
-//		String s = "";
-//
-//		while (p != null)
-//		{
-//			s = s + " " + p.key;
-//
-//			p = p.up;
-//		}
-//
-//		return (s);
-//	}
-
-	
-	/*
-	 * 
-	 * 
-	 * 
-	 */
-	
 	@Override
 	public int getDistinctWords()
 	{

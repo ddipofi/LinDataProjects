@@ -1,5 +1,5 @@
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class MainClass
 {
@@ -80,6 +80,7 @@ public class MainClass
 				if (word != "") //if word, after trimming, is not an empty string, add it to the current list
 				{
 					Lists[i].add(word);
+					
 					
 					//TODO figure out what to do for skip list here
 				}
