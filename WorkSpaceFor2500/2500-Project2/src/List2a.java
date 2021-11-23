@@ -36,13 +36,13 @@ public class List2a extends BaseList
 	
 	public boolean find(String word)
 	{	
-		if (currentNode != null)
+		if (currentNode != null) //if there is already at least one word in the list
 		{
-			if (currentNode.word.compareTo(word) > 0)
+			if (currentNode.word.compareTo(word) > 0) //if word is alphabetically before currentNode.word, start from beginning
 			{
 				currentNode = list;
 				prevNode = null;
-			}
+			} //else, prevNode stays what it was which will start searching at this word
 		}
 		else
 		{

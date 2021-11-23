@@ -17,7 +17,7 @@ public class MainClass
 		Lists[5] = new List5(); //skip list using lanes and insert method
 		// word one position towards front of list)
 		//
-		String[] ListNames = { "Unsorted", "Sorted", "Sorted 2.0", "Self-Adj (Front)", "Self-Adj (By One)", "Skip List"}; //names of lists stored in array for later output
+		String[] ListNames = { "Unsorted", "Sorted", "Sorted Modified", "Self-Adj (Front)", "Self-Adj (By One)", "Skip List"}; //names of lists stored in array for later output
 		String FILE_NAME; //filename to be read by program
 		
 		if (args.length > 0) //this detects if command line has input a specific filename, or else it uses default string value
@@ -26,14 +26,14 @@ public class MainClass
 		}
 		else
 		{
-			FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\War and Peace.txt";
+			FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\Hamlet.txt";
 		}
 		
 		double parseTime = 0.0; //declaring time to read file
 		
 		//created table header
-		System.out.printf("%2s %-17s %16s %16s %16s %16s %16s %n", "#", "    List Name    ", "    Run Time    ", "   Vocabulary   ", "  Total Words   ", "    Key Comp    ", "    Ref Chgs    ");
-		System.out.printf("%2s %-17s %16s %16s %16s %16s %16s %n", "--", "-----------------", "----------------", "----------------", "----------------", "----------------", "----------------");
+		System.out.printf("%2s %-17s %16s %16s %16s %16s %16s %3s %n", "#", "    List Name    ", "    Run Time    ", "   Vocabulary   ", "  Total Words   ", "    Key Comp    ", "    Ref Chgs    ", " h ");
+		System.out.printf("%2s %-17s %16s %16s %16s %16s %16s %3s %n", "--", "-----------------", "----------------", "----------------", "----------------", "----------------", "----------------", "---");
 		
 		//initial read of program to fill buffers
 		for (int i = 0; i < 1; i++)
@@ -87,8 +87,14 @@ public class MainClass
 			input.close();
 			
 			//formatting for table
-			System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d %n", i + 1, ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d", i + 1, ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			
+			if (i != 5)
+			{
+				System.out.println();
+			}
 		}
+		System.out.printf("%3d %n", ((List5) Lists[5]).h);
 	}
 	
 	public static String trimWord(String word)
