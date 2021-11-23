@@ -2,7 +2,7 @@
 public class SLNode
 {
 	public String key;
-	public Integer value;
+	public int count;
 
 	public int pos;
 
@@ -11,17 +11,17 @@ public class SLNode
 	public static String negInf = "NEG_INF";
 	public static String posInf = "POS_INF";
 
-	public SLNode(String k, Integer v) 
+	public SLNode(String word, int count) 
 	  { 
-	     key = k;
-	     value = v;
+	     key = word;
+	     this.count = count;
 
 	     up = down = left = right = null;
 	  }
 
-	public Integer getValue()
+	public int getCount()
 	{
-		return value;
+		return count;
 	}
 
 	public String getKey()
@@ -29,11 +29,11 @@ public class SLNode
 		return key;
 	}
 
-	public Integer setValue(Integer val)
+	public int setCount(int val)
 	{
-		Integer oldValue = value;
-		value = val;
-		return oldValue;
+		int oldcount = count;
+		count = val;
+		return oldcount;
 	}
 
 	public boolean equals(Object o)
@@ -48,11 +48,11 @@ public class SLNode
 			return false;
 		}
 
-		return (ent.getKey() == key) && (ent.getValue() == value);
+		return (ent.getKey() == key) && (ent.getCount() == count);
 	}
 
 	public String toString()
 	{
-		return "(" + key + "," + value + ")";
+		return "(" + key + "," + count + ")";
 	}
 }

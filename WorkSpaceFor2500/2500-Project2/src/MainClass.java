@@ -66,7 +66,7 @@ public class MainClass
 		}
 		
 		//looping through all four lists and readings/adding words to lists
-		for (int i = 5; i < 6; i++)
+		for (int i = 0; i < 6; i++)
 		{
 			Scanner input = new Scanner(new File(FILE_NAME));
 			long startTime = System.currentTimeMillis();
@@ -87,7 +87,7 @@ public class MainClass
 			input.close();
 			
 			//formatting for table
-			System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d %n", i + 1, ListNames[i], runTime, Lists[i].getDistinctWords(), 5, Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d %n", i + 1, ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
 		}
 	}
 	

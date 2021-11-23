@@ -14,8 +14,8 @@ public class List5 extends BaseList
 	{
 		SLNode p1, p2;
 
-		p1 = new SLNode(SLNode.negInf, null);
-		p2 = new SLNode(SLNode.posInf, null);
+		p1 = new SLNode(SLNode.negInf, 1);
+		p2 = new SLNode(SLNode.posInf, 1);
 
 		head = p1;
 		tail = p2;
@@ -27,16 +27,6 @@ public class List5 extends BaseList
 		h = 0;
 
 		r = new Random();
-	}
-
-	public int size()
-	{
-		return n;
-	}
-
-	public boolean isEmpty()
-	{
-		return (n == 0);
 	}
 
 	public SLNode search(String k)
@@ -63,26 +53,8 @@ public class List5 extends BaseList
 		return (p);
 	}
 
-	public Integer get(String k)
-	{
-		SLNode p;
-
-		p = search(k);
-
-		if (k.equals(p.getKey()))
-			return (p.value);
-		else
-			return (null);
-	}
-
 	@Override
-	public void add(String word)
-	{
-		insert(word, 123);
-		
-	}
-	
-	public Integer insert(String k, Integer v)
+	public void add(String k)
 	{
 		SLNode p, q;
 		int i;
@@ -91,80 +63,76 @@ public class List5 extends BaseList
 
 		if (k.equals(p.getKey()))
 		{
-			Integer old = p.value;
-
-			p.value = v;
-
-			return (old);
+			p.count++;
 		}
-
-		q = new SLNode(k, v);
-		q.left = p;
-		q.right = p.right;
-		p.right.left = q;
-		p.right = q;
-		refChanges += 4;
-
-		i = 0;
-
-		while (r.nextDouble() < 0.5)
+		else
 		{
-			if (i >= h)
+			q = new SLNode(k, 1);
+			q.left = p;
+			q.right = p.right;
+			p.right.left = q;
+			p.right = q;
+			refChanges += 4;
+
+			i = 0;
+
+			while (r.nextDouble() < 0.5)
 			{
-				SLNode p1, p2;
+				if (i >= h)
+				{
+					SLNode p1, p2;
 
-				h = h + 1;
+					h = h + 1;
 
-				p1 = new SLNode(SLNode.negInf, null);
-				p2 = new SLNode(SLNode.posInf, null);
+					p1 = new SLNode(SLNode.negInf, 0);
+					p2 = new SLNode(SLNode.posInf, 0);
 
-				p1.right = p2;
-				p1.down = head;
+					p1.right = p2;
+					p1.down = head;
 
-				p2.left = p1;
-				p2.down = tail;
-				
-				refChanges += 4;
+					p2.left = p1;
+					p2.down = tail;
+					
+					refChanges += 4;
 
-				head.up = p1;
-				tail.up = p2;
+					head.up = p1;
+					tail.up = p2;
 
-				head = p1;
-				tail = p2;
-			}
+					head = p1;
+					tail = p2;
+				}
 
-			while (p.up == null)
-			{
-				p = p.left;
+				while (p.up == null)
+				{
+					p = p.left;
+					refChanges++;
+				}
+
+				p = p.up;
 				refChanges++;
+
+				SLNode e;
+
+				e = new SLNode(k, 0);
+
+				e.left = p;
+				e.right = p.right;
+				e.down = q;
+
+				p.right.left = e;
+				p.right = e;
+				q.up = e;
+
+				q = e;
+				
+				refChanges += 6;
+
+				i = i + 1;
+
 			}
 
-			p = p.up;
-			refChanges++;
-
-			SLNode e;
-
-			e = new SLNode(k, null);
-
-			e.left = p;
-			e.right = p.right;
-			e.down = q;
-
-			p.right.left = e;
-			p.right = e;
-			q.up = e;
-
-			q = e;
-			
-			refChanges += 6;
-
-			i = i + 1;
-
-		}
-
-		n = n + 1;
-
-		return (null);
+			n = n + 1;
+		}		
 	}
 
 	@Override
@@ -195,12 +163,30 @@ public class List5 extends BaseList
 		// How many TOTAL words? That's the sum of the counts in each node.
 		//
 		int count = 0;
-		SLNode p = list;
-		while (p != null)
+		SLNode p = head;
+		SLNode nextBottom;
+		
+		while (p.down != null)
 		{
-			count += p.count;
-			p = p.getNext();
+			p = p.down;
 		}
+		
+		p = p.right;
+		
+		while (p.right != null)
+		{
+			nextBottom = p.right;
+			
+			while (p.up != null)
+			{
+				count += p.count;
+				p = p.up;
+			}
+			
+			count += p.count;
+			p = nextBottom;
+		}
+		
 		return count;
 	}
 }
