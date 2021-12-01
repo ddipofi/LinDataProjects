@@ -5,7 +5,7 @@ public class MainClass
 {
 	public static void main(String[] args) throws IOException
 	{
-		ListInterface[] Lists = new ListInterface[6]; // By creating the lists as
+		ListInterface[] Lists = new ListInterface[10]; // By creating the lists as
 		// an array, we can iterate
 		// with a subscript
 		Lists[0] = new List1(); // Unsorted, insertions at beginning, no self-optimization
@@ -15,9 +15,13 @@ public class MainClass
 		// word to the front of the list)
 		Lists[4] = new List4(); // Unsorted, conservative self-adjusting (moves repeated
 		Lists[5] = new List5(); //skip list using lanes and insert method
+		Lists[6] = new Hash1(); //TODO comment
+		Lists[7] = new Hash2();
+		Lists[8] = new Hash3();
+		Lists[9] = new BST();
 		// word one position towards front of list)
 		//
-		String[] ListNames = { "Unsorted", "Sorted", "Sorted Modified", "Self-Adj (Front)", "Self-Adj (By One)", "Skip List"}; //names of lists stored in array for later output
+		String[] ListNames = { "Unsorted", "Sorted", "Sorted Modified", "Self-Adj (Front)", "Self-Adj (By One)", "Skip List", "Hash 1", "Hash 2", "Hash 3", "Binary Search Tree"}; //names of lists stored in array for later output
 		String FILE_NAME; //filename to be read by program
 		
 		if (args.length > 0) //this detects if command line has input a specific filename, or else it uses default string value
@@ -66,7 +70,7 @@ public class MainClass
 		}
 		
 		//looping through all four lists and readings/adding words to lists
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 10; i++)
 		{
 			Scanner input = new Scanner(new File(FILE_NAME));
 			long startTime = System.currentTimeMillis();
@@ -87,14 +91,44 @@ public class MainClass
 			input.close();
 			
 			//formatting for table
-			System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d", i + 1, ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			if (i < 2)
+			{
+				System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d", i + 1, ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			}
+			else if (i == 2)
+			{
+				System.out.printf("%2s %-17s %16.3f %16d %16d %16d %16d", "2a", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			}
+			else if (i < 6)
+			{
+				System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d", i, ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			}
+			else if (i == 6)
+			{
+				System.out.printf("%2s %-17s %16.3f %16d %16d %16d %16d", "H1", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			}
+			else if (i == 7)
+			{
+				System.out.printf("%2s %-17s %16.3f %16d %16d %16d %16d", "H2", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			}
+			else if (i == 8)
+			{
+				System.out.printf("%2s %-17s %16.3f %16d %16d %16d %16d", "H3", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			}
+			else
+			{
+				System.out.printf("%2s %-17s %16.3f %16d %16d %16d %16d", "BT", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+			}
 			
 			if (i != 5)
 			{
 				System.out.println();
 			}
+			else
+			{
+				System.out.printf("%3d %n", ((List5) Lists[5]).h);
+			}
 		}
-		System.out.printf("%3d %n", ((List5) Lists[5]).h);
 	}
 	
 	public static String trimWord(String word)
