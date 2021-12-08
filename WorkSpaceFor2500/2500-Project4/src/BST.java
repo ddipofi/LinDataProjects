@@ -1,13 +1,15 @@
 
 public class BST extends BaseList
 {
-	BSTNode root = null;
-	BSTNode p = null;
-	BSTNode n = null;
-	BSTNode s = null;
-	int cmp = 0;
-	int vCount = 0;
-	int tCount = 0 ;
+	public BSTNode root = null;
+	public BSTNode p = null;
+	public BSTNode n = null;
+	public BSTNode s = null;
+	public int cmp = 0;
+	public int vCount = 0;
+	public int tCount = 0 ;
+	public int h = 1;
+	public int maxH = 0;
 	
 	public BSTNode search(String key)
 	{
@@ -61,49 +63,45 @@ public class BST extends BaseList
 		}
 	}
 	
-	public void traverseV(BSTNode b)
+	public void traverse(BSTNode b)
 	{	
 		if (b.left != null)
 		{
 			vCount++;
-			traverseV(b.left);
-		}
-		
-		if (b.right != null)
-		{
-			vCount++;
-			traverseV(b.right);
-		}
-	}
-	
-	public void traverseT(BSTNode b)
-	{	
-		if (b.left != null)
-		{
 			tCount += b.left.count;
-			traverseT(b.left);
+			h++;
+			traverse(b.left);
 		}
 		
 		if (b.right != null)
 		{
+			vCount++;
 			tCount += b.right.count;
-			traverseT(b.right);
+			h++;
+			traverse(b.right);
 		}
+		
+		h--;
+		
+		if (h > maxH)
+		{
+			maxH = h;
+		}
+		
 	}
 	
 	@Override
 	public int getDistinctWords() //gets # vocabulary of list
 	{
 		vCount = 1;
-		traverseV(root);
+		tCount = root.count;
+		traverse(root);
 		return vCount;
 	}
 
 	@Override
 	public int getTotalWords()
 	{
-		tCount = root.count;
-		traverseT(root);
 		return tCount;
 	}
 }

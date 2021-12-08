@@ -30,14 +30,14 @@ public class MainClass
 		}
 		else
 		{
-			FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\ALL.txt";
+			FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\War and Peace.txt";
 		}
 		
 		double parseTime = 0.0; //declaring time to read file
 		
 		//created table header
-		System.out.printf("%2s %-17s %16s %16s %16s %16s %16s %3s %n", "#", "    List Name    ", "    Run Time    ", "   Vocabulary   ", "  Total Words   ", "    Key Comp    ", "    Ref Chgs    ", " h ");
-		System.out.printf("%2s %-17s %16s %16s %16s %16s %16s %3s %n", "--", "-----------------", "----------------", "----------------", "----------------", "----------------", "----------------", "---");
+		System.out.printf("%2s %-19s %16s %16s %16s %16s %16s %3s %n", "#", "     List Name     ", "    Run Time    ", "   Vocabulary   ", "  Total Words   ", "    Key Comp    ", "    Ref Chgs    ", " h ");
+		System.out.printf("%2s %-19s %16s %16s %16s %16s %16s %3s %n", "--", "-------------------", "----------------", "----------------", "----------------", "----------------", "----------------", "---");
 		
 		//initial read of program to fill buffers
 		for (int i = 0; i < 1; i++)
@@ -93,40 +93,44 @@ public class MainClass
 			//formatting for table
 			if (i < 2)
 			{
-				System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d", i + 1, ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+				System.out.printf("%2d %-19s %16.3f %16d %16d %16d %16d", i + 1, ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
 			}
 			else if (i == 2)
 			{
-				System.out.printf("%2s %-17s %16.3f %16d %16d %16d %16d", "2a", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+				System.out.printf("%2s %-19s %16.3f %16d %16d %16d %16d", "2a", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
 			}
 			else if (i < 6)
 			{
-				System.out.printf("%2d %-17s %16.3f %16d %16d %16d %16d", i, ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+				System.out.printf("%2d %-19s %16.3f %16d %16d %16d %16d", i, ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
 			}
 			else if (i == 6)
 			{
-				System.out.printf("%2s %-17s %16.3f %16d %16d %16d %16d", "H1", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+				System.out.printf("%2s %-19s %16.3f %16d %16d %16d %16d", "H1", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
 			}
 			else if (i == 7)
 			{
-				System.out.printf("%2s %-17s %16.3f %16d %16d %16d %16d", "H2", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+				System.out.printf("%2s %-19s %16.3f %16d %16d %16d %16d", "H2", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
 			}
 			else if (i == 8)
 			{
-				System.out.printf("%2s %-17s %16.3f %16d %16d %16d %16d", "H3", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+				System.out.printf("%2s %-19s %16.3f %16d %16d %16d %16d", "H3", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
 			}
 			else
 			{
-				System.out.printf("%2s %-17s %16.3f %16d %16d %16d %16d", "BT", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
+				System.out.printf("%2s %-19s %16.3f %16d %16d %16d %16d", "BT", ListNames[i], runTime, Lists[i].getDistinctWords(), Lists[i].getTotalWords(), Lists[i].getKeyCompare(), Lists[i].getRefChanges());
 			}
 			
-			if (i != 5)
+			if (i != 5 && i != 9)
 			{
 				System.out.println();
 			}
-			else
+			else if (i == 5)
 			{
 				System.out.printf("%3d %n", ((List5) Lists[5]).h);
+			}
+			else
+			{
+				System.out.printf("%3d %n", ((BST) Lists[9]).maxH);
 			}
 		}
 	}
