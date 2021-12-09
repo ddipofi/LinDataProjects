@@ -20,4 +20,68 @@ public abstract class BaseHash extends BaseList
 		
 		hashTable[hash].add(word);
 	}
+	
+	@Override
+	public int getDistinctWords() //gets # vocabulary of list
+	{
+		int count = 0;
+		
+		for (int i = 0; i < 256; i++)
+		{
+			if (hashTable[i] != null)
+			{
+				count += hashTable[i].getDistinctWords();
+			}
+		}
+		
+		return count;
+	}
+
+	@Override
+	public int getTotalWords()
+	{
+		int count = 0;
+		
+		for (int i = 0; i < 256; i++)
+		{
+			if (hashTable[i] != null)
+			{
+				count += hashTable[i].getTotalWords();
+			}
+		}
+		
+		return count;
+	}
+	
+	@Override
+	public long getRefChanges()
+	{
+		int count = 0;
+		
+		for (int i = 0; i < 256; i++)
+		{
+			if (hashTable[i] != null)
+			{
+				count += hashTable[i].getRefChanges();
+			}
+		}
+		
+		return count;
+	}
+
+	@Override
+	public long getKeyCompare()
+	{
+		int count = 0;
+		
+		for (int i = 0; i < 256; i++)
+		{
+			if (hashTable[i] != null)
+			{
+				count += hashTable[i].getKeyCompare();
+			}
+		}
+		
+		return count;
+	}
 }

@@ -30,7 +30,7 @@ public class MainClass
 		}
 		else
 		{
-			FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\War and Peace.txt";
+			FILE_NAME = "C:\\Users\\Dominic\\OneDrive\\Documents\\Classes\\LinDataSTRC\\Projects\\Project2Txts\\ALL.txt";
 		}
 		
 		double parseTime = 0.0; //declaring time to read file
