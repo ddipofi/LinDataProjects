@@ -1,12 +1,16 @@
 
-public class Hash3 extends BaseList
+public class Hash3 extends BaseHash
 {
-
 	@Override
-	public void add(String word)
+	public int hash(String word)
 	{
-		// TODO Auto-generated method stub
+		int hash = 0;
 		
+		for (int i = 0; i < word.length(); i++)
+		{
+			hash = (hash * 31) + word.charAt(i);
+		}
+		
+		return hash & 255;
 	}
-
 }

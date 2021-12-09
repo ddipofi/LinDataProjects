@@ -70,7 +70,7 @@ public class MainClass
 		}
 		//TODO change i back to 0
 		//looping through all four lists and readings/adding words to lists
-		for (int i = 9; i < 10; i++)
+		for (int i = 6; i < 10; i++)
 		{
 			Scanner input = new Scanner(new File(FILE_NAME));
 			long startTime = System.currentTimeMillis();
