@@ -14,7 +14,6 @@ public class BST extends BaseList
 	public BSTNode search(String key)
 	{
 		p = root;
-		refChanges++;
 		
 		while (p != null)
 		{
@@ -25,7 +24,6 @@ public class BST extends BaseList
 			
 			n = p;
 			p = (cmp > 0) ? p.left : p.right;
-			refChanges += 2;
 		}
 		
 		return p;
@@ -50,10 +48,12 @@ public class BST extends BaseList
 				if (cmp > 0)
 				{
 					n.left = a;
+					refChanges++;
 				}
 				else
 				{
 					n.right = a;
+					refChanges++;
 				}
 			}
 		}
