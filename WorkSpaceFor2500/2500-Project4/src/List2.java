@@ -1,4 +1,10 @@
-
+/*
+ * Dominic DiPofi
+ * 10-30-21
+ * 
+ * list 2 extends baselist and adds words to linked list alphabetically using compareTo
+ * contains method for adding words found with find() method, as well as constructor
+*/
 public class List2 extends BaseList
 {
 	public LLNode currentNode = null;

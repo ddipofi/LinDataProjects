@@ -1,3 +1,10 @@
+/*
+ * Dominic DiPofi
+ * 10-30-21
+ * 
+ * node class to be used in various linked lists
+ * uses simple constructor to set variables, as well as setter and getter for link
+*/
 public class LLNode
 {
 	protected String word;

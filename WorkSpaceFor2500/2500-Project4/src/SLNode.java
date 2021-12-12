@@ -1,4 +1,10 @@
-
+/*
+ * Dominic DiPofi
+ * 11-20-21
+ * 
+ * node class to be used in skip list
+ * uses simple constructor to set variables, as well as setter and getter for count, and getter for key
+*/
 public class SLNode
 {
 	public String key;

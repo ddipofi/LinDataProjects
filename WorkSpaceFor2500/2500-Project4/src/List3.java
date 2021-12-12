@@ -1,4 +1,10 @@
-
+/*
+ * Dominic DiPofi
+ * 10-30-21
+ * 
+ * list 3 extends baselist and adds words to front linked list, moves repeated words to front
+ * contains method for adding words found with find() method, as well as constructor
+*/
 public class List3 extends BaseList
 {
 	public LLNode currentNode = null;

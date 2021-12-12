@@ -1,4 +1,10 @@
-
+/*
+ * Dominic DiPofi
+ * 10-30-21
+ * 
+ * list 4 extends baselist and adds words to front of llist, and repeated words are moved up one spot in llist
+ * contains method for adding words found with find() method, as well as constructor
+*/
 public class List4 extends BaseList
 {
 	public LLNode currentNode = null;

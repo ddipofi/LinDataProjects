@@ -14,12 +14,14 @@ public class MainClass
 		Lists[3] = new List3(); // Unsorted, heavy-handed self-adjusting (moves repeated
 		// word to the front of the list)
 		Lists[4] = new List4(); // Unsorted, conservative self-adjusting (moves repeated
-		Lists[5] = new List5(); //skip list using lanes and insert method
-		Lists[6] = new Hash1(); //TODO comment
-		Lists[7] = new Hash2();
-		Lists[8] = new Hash3();
-		Lists[9] = new BST();
 		// word one position towards front of list)
+		Lists[5] = new List5(); //skip list using lanes and insert method
+		Lists[6] = new Hash1(); //hash list with hash function that adds ASCII values of word
+		// and gets remainder using & 255 for hash value
+		Lists[7] = new Hash2(); //hash value is ASCII value of first char of word
+		Lists[8] = new Hash3(); //similar to hash1 but takes into account order in which
+		// the characters appear
+		Lists[9] = new BST(); //uses binary tree to alphabetically sort words from root
 		//
 		String[] ListNames = { "Unsorted", "Sorted", "Sorted Modified", "Self-Adj (Front)", "Self-Adj (By One)", "Skip List", "Hash 1", "Hash 2", "Hash 3", "Binary Search Tree"}; //names of lists stored in array for later output
 		String FILE_NAME; //filename to be read by program

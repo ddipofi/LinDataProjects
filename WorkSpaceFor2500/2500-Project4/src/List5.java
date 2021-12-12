@@ -1,3 +1,10 @@
+/*
+ * Dominic DiPofi
+ * 11-20-21
+ * 
+ * list 5 extends baselist and adds words to linked list using various lanes called skiplist
+ * contains method for adding words found with find() method, as well as constructor, and its own specific total/distinct methods
+*/
 import java.util.*;
 
 public class List5 extends BaseList

@@ -1,3 +1,6 @@
+//Prof Thomas
+//10-19-21
+//
 // ListInterface.java
 //
 // This interface lists all of the methods that the four test lists in this project
